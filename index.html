@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Ayoub Bni-bourk — Portfolio</title>
+  <meta name="description" content="Automation & DCS Engineer — PLC programming, commissioning, industrial networks. WorldSkills Mechatronics bronze medalist.">
+  <meta property="og:title" content="Ayoub Bni-Bourk — Automation & DCS Engineer">
+  <meta property="og:description" content="DCS (CENTUM VP, DeltaV), PLC systems, commissioning, industrial networks.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="styles.css"/>
+    <script>
+    // Immediate theme setup to prevent flash
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', initialTheme);
+    document.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.remove('preload');
+    });
+  </script>
+  <script src="app.js" defer></script>
+</head>
+<body id="top" class="preload">
+  <div id="diagMask" class="diag-mask" aria-hidden="true">
+  <div class="diag-mask__slab"></div>
+  </div>
+  <!-- Top Bar -->
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#top" class="brand">AB</a>
+      <!-- Hamburger toggle (hidden checkbox) -->
+   <input type="checkbox" id="menuToggle" hidden>
+   <label for="menuToggle" class="hamburger" aria-label="Toggle navigation" aria-controls="navMenu" aria-expanded="false">
+   <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+    <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+   </svg>
+   </label>
+
+    <!-- Backdrop that closes the drawer when tapped -->
+     <label for="menuToggle" class="scrim" aria-hidden="true"></label>
+      <nav class="links" id="navMenu">
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#skills">Skills</a>
+        <a class="nav-link" href="#projects">Projects</a>
+        <a class="nav-link" href="#experience">Experience</a>
+        <a class="nav-link" href="#education">Education</a>
+        <a class="nav-link" href="#awards">Awards</a>
+        <a class="nav-link" href="#contact">Contact</a>
+      </nav>
+       <!-- Theme toggle (CSS-only) -->
+     <!-- WITH THIS: -->
+<button id="themeSwitch" class="btn-icon" aria-label="Toggle dark mode">
+  <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+    <circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    <g stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+      <path d="M12 2v2m0 16v2M4 12H2m20 0h-2"/>
+      <path d="m5.64 5.64.7.7m11.32 11.32.7.7m-12.02-.7.7-.7m11.32-11.32.7-.7"/>
+    </g>
+  </svg>
+  <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" style="display:none">
+    <path fill="none" 
+          stroke="currentColor" 
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M20.5 14.5a8.5 8.5 0 1 1-8.5-8.5 6.5 6.5 0 0 0 8.5 8.5z"/>
+  </svg>
+</button>
+    </div>  
+  </header>
+
+  <main class="container">
+    <!-- HERO (Option A) -->
+    <section id="home" class="hero reveal">
+      <div class="hero-left">
+        <h1 class="title">Automation & Instrumentation Technician</h1>
+        <p class="lead">
+          I build reliable control systems (Yokogawa & Emerson DCS; Siemens, Schneider & Opto 22 PLCs)
+          with clean logic, modern features, robust networks, and seamless commissioning.
+        </p>
+
+     <div class="cta-row">
+        <a class="btn primary" href="#projects">View Projects</a>
+
+       <div class="dropdown" data-cv>
+         <button class="btn primary">Download CV</button>
+         <div class="dropdown-menu" role="menu" aria-label="Download CV versions">
+         <a role="menuitem" href="CV-Ayoub-Bni-Bourk-EN.pdf" target="_blank" rel="noopener" download>English</a>
+         <a role="menuitem" href="CV-Ayoub-Bni-Bourk-FR.pdf" target="_blank" rel="noopener" download>Français</a>
+
+         </div>
+       </div>
+     </div>
+
+
+        <div id="statsRow" class="stats-row chips"></div>
+      </div>
+
+      <div class="hero-right">
+        <div class="avatar-wrap">
+          <img height="200" width="200" loading="eager" src="avatar.webp" alt="Portrait of Ayoub Bni-bourk" class="avatar"/>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT (Option C) -->
+    <section id="about" class="section reveal">
+      <h2 class="section-title">About Me</h2>
+      <article class="card">
+        <p class="muted">
+          I’m Ayoub Bni-Bourk, an Automation & Instrumentation Technician. I build and maintain
+          DCS (Yokogawa CENTUM VP, Emerson DeltaV) and PLC systems (Siemens, Schneider, Opto 22) for process plants.
+          Day to day, I tune loops, clean up interlocks, design operator-friendly graphics/faceplates, and
+          support commissioning so production starts smooth and stays stable.
+        </p>
+        <p class="muted">
+          My approach is practical: clean logic and naming, clear cause-and-effect, and documentation that helps
+          the next person—P&amp;IDs, I/O lists, alarm rationalization notes, FAT/SAT checklists, and handover packs.
+          On the comms side I work with Profinet, Profibus, Modbus/TCP, and IO-Link, and I’m comfortable
+          troubleshooting networks and devices on site.
+        </p>
+        <p class="muted">
+          Recently I’ve been with OCP Maintenance Solutions on CENTUM VP &amp; DeltaV operations and troubleshooting.
+          Earlier, at Actemium (VINCI Energies), I contributed in the design office (AutoCAD Electrical, Navisworks,
+          Excel/VBScript instrument sheets). At SSE MENA, I helped program and commission Siemens S7-1500/ET200 with WinCC
+          for a CaF₂ production line. I’m a WorldSkills Mechatronics <strong>Bronze</strong> medalist (2024), and I work
+          easily across teams in Arabic, Amazigh, French, and English.
+        </p>
+        <div class="highlight-chips chips">
+          <span class="chip">Documentation &amp; Handover: P&amp;IDs • I/O • FAT/SAT</span>
+          <span class="chip">Industrial networks: Profinet • Profibus • Modbus/TCP • IO-Link</span>
+          <a class="chip" href="https://www.credly.com/users/ayoub-bni-bourk/" target="_blank" rel="noopener"
+             aria-label="WorldSkills Bronze (Mechatronics)">
+            🥉 WorldSkills Bronze (Mechatronics)
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section reveal">
+      <h2 class="section-title">Core Skills</h2>
+      <div id="skillsGrid" class="grid skills-grid"></div>
+      <div id="toolsRow" class="chips" style="margin-top:10px"></div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section projects-new">
+      <h2 class="section-title">Projects</h2>
+      <div id="filterBar" class="filterbar"></div>
+      <div id="projectsGrid" class="projects-grid"></div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section reveal">
+      <h2 class="section-title">Experience</h2>
+      <div id="expList" class="stack"></div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="section reveal">
+      <h2 class="section-title">Education</h2>
+      <div id="eduList" class="grid"></div>
+    </section>
+
+    <!-- AWARDS -->
+    <section id="awards" class="section">
+      <h2 class="section-title reveal">Awards & Certifications</h2>
+
+      <div class="badges-row">
+        <!-- Champion -->
+        <article class="badge-card reveal">
+          <div class="award-media">
+            <img src="worldskills-lyon-2024-champion-mechatronics.webp"
+                 alt="WorldSkills Lyon 2024 — Champion (Mechatronics)"/>
+          </div>
+          <h3>WorldSkills Lyon 2024 — Champion (Mechatronics)</h3>
+          <p class="muted small">
+            Award for demonstrated mastery across PLC programming, systems integration under competition conditions.
+          </p>
+          <div class="award-actions">
+            <a class="btn small" href="https://www.credly.com/badges/b285d0ba-bd45-45eb-914c-a7fb8fb866f1/public_url"
+               target="_blank" rel="noopener">View on Credly</a>
+          </div>
+        </article>
+
+        <!-- Best of Nation -->
+        <article class="badge-card reveal">
+          <div class="award-media">
+            <img src="best-of-nation.webp" alt="WorldSkills Lyon 2024 — Best of Nation"/>
+          </div>
+          <h3>WorldSkills Lyon 2024 — Best of Nation</h3>
+          <p class="muted small">
+            Distinction given to the top-performing competitor representing Morocco at WorldSkills Lyon 2024.
+          </p>
+          <div class="award-actions">
+            <a class="btn small" href="https://www.credly.com/badges/912a75b2-9b20-4008-b6dd-ceef8ecf00c4/public_url"
+               target="_blank" rel="noopener">View on Credly</a>
+          </div>
+        </article>
+
+        <!-- Bronze Medal -->
+        <article class="badge-card reveal">
+          <div class="award-media">
+            <img src="bronze-medal.webp" alt="WorldSkills Lyon 2024 — Bronze Medal"/>
+          </div>
+          <h3>WorldSkills Lyon 2024 — Bronze Medal (Mechatronics)</h3>
+          <p class="muted small">
+            Bronze medal for outstanding performance in mechatronics, combining mechanics, electronics, and automation.
+          </p>
+          <div class="award-actions">
+            <a class="btn small" href="https://www.flickr.com/photos/worldskills/collections/72157721575129232/"
+               target="_blank" rel="noopener">View Photos</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+   <!-- CONTACT -->
+<!-- CONTACT -->
+<section id="contact" class="section reveal">
+  <h2 class="section-title">Contact</h2>
+  <div class="grid contact-grid">
+    
+    <!-- Email -->
+    <article class="card">
+      <div class="contact-item">
+        <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M3 7l9 6 9-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <strong>Email</strong>
+          <div><a href="mailto:ayoubbnibourk728@gmail.com">ayoubbnibourk728@gmail.com</a></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Phone (WhatsApp) -->
+    <article class="card">
+      <div class="contact-item">
+        <!-- Phone (WhatsApp) -->
+        <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+         <!-- Phone body -->
+        <rect x="5" y="2.5" width="14" height="19" rx="2.4"
+        fill="none" stroke="currentColor" stroke-width="1.6"/>
+        <!-- Speaker notch -->
+        <path d="M10 5h4" fill="none" stroke="currentColor" stroke-width="1.6"
+        stroke-linecap="round"/>
+        <!-- Home line -->
+        <path d="M9 19h6" fill="none" stroke="currentColor" stroke-width="1.6"
+        stroke-linecap="round"/>
+        </svg>
+        <div>
+          <strong>Phone (WhatsApp)</strong>
+          <div class="muted"><a href="https://wa.me/212674335326" class="phone-link" target="_blank" rel="noopener">+212 6 74 33 53 26</a></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Location -->
+    <article class="card">
+      <div class="contact-item">
+        <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        </svg>
+        <div>
+          <strong>Location</strong>
+          <div class="muted">El Jorf Lasfar · El Jadida · Morocco</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- LinkedIn -->
+    <article class="card">
+      <div class="contact-item">
+        <!-- LinkedIn -->
+      <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+      <!-- Container -->
+      <rect x="3" y="3" width="18" height="18" rx="3"
+        fill="none" stroke="currentColor" stroke-width="1.6"/>
+      <!-- "i" -->
+      <circle cx="8" cy="9" r="1"
+          fill="currentColor"/>
+      <path d="M8 11v6" fill="none" stroke="currentColor" stroke-width="1.6"
+        stroke-linecap="round"/>
+      <!-- "n" -->
+      <path d="M12 17v-4.2a2 2 0 0 1 2-2c1.1 0 2 .9 2 2V17"
+        fill="none" stroke="currentColor" stroke-width="1.6"
+        stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+
+        <div>
+          <strong>LinkedIn</strong>
+          <div><a href="https://www.linkedin.com/in/ayoub-bni-bourk-136444172/" target="_blank" rel="noopener">linkedin.com</a></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- GitHub -->
+    <article class="card">
+      <div class="contact-item">
+        <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 8l-4 4 4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M11 16h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          <rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/>
+        </svg>
+        <div>
+          <strong>GitHub</strong>
+          <div><a href="https://github.com/Bni-bourk" target="_blank" rel="noopener">github.com</a></div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Credly -->
+    <article class="card">
+      <div class="contact-item">
+        <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="8.5" r="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M9 13l-2 7 5-3 5 3-2-7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <strong>Credly</strong>
+          <div><a href="https://www.credly.com/users/ayoub-bni-bourk/badges#credly" target="_blank" rel="noopener">Ayoub Bni-Bourk</a></div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+  </main>
+
+  <footer class="site-footer">© <span id="year"></span> Ayoub Bni-Bourk. All rights reserved.</footer>
+
+</body>
+</html>
