@@ -145,6 +145,7 @@ const DATA = {
   ],
 
   education: [
+    { title: "Professional Bachelor's Degree: Industrial Automation & Electrical Systems (ENSAM)", where: "Casablanca · 2025 – Present" },
     { title: "Mechatronics Training ", where: "CDCGE Casablanca-2024" },
     { title: "Technicien Spécialisé — Automation & Industrial Instrumentation (OFPPT)", where: "Agadir · 2021 – 2023" },
     { title: "Technicien — Industrial Electrical Maintenance (OFPPT)", where: "Agadir · 2019 – 2021" },
@@ -654,5 +655,6 @@ document.addEventListener('DOMContentLoaded', function () {
     if (e.key === 'Escape') dd.classList.remove('open');
   });
 })();
+
 
 
