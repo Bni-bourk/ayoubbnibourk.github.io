@@ -57,6 +57,16 @@ const DATA = {
   /* Projects */
   projects: [
     {
+      title: "S7comm-Plus / OMS Industrial Driver",
+      thumb: "s7comm_plus_infographic.svg",
+      badges: ["C#", ".NET 8", "S7comm-Plus", "TLS Security", "Symbolic Access"],
+      desc: "High-precision terminal tool for Siemens S7-1200/1500 PLCs. Supports secure TLS communication and symbolic access to optimized data blocks for efficient industrial commissioning.",
+      links: [
+        { type: "doc", label: "GitHub Repo", href: "https://github.com/Bni-bourk/S7CommPlus-Project.git" }
+      ],
+      filter: "IoT/Data"
+    },
+    {
       title: "DCS Operations – OCP Maintenance Solutions",
       thumb: "thumb-dcs.webp",
       badges: ["Yokogawa CENTUM VP","Emerson DeltaV"],
