@@ -1,0 +1,204 @@
+<svg width="1536" height="1024" viewBox="0 0 1536 1024" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>S7COMM-PLUS Industrial Automation Infographic</title>
+  <desc>S7COMM-PLUS protocol infographic with Siemens S7-1500 PLC, C#/.NET, Terminal, TLS security.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#081428"/>
+      <stop offset="55%" stop-color="#0c1f44"/>
+      <stop offset="100%" stop-color="#060e20"/>
+    </linearGradient>
+    <linearGradient id="hline" x1="0" y1="0" x2="1" y2="0" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#2a8fff" stop-opacity="0"/>
+      <stop offset="25%" stop-color="#2a8fff"/>
+      <stop offset="75%" stop-color="#2a8fff"/>
+      <stop offset="100%" stop-color="#2a8fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#122050" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#091530" stop-opacity="0.95"/>
+    </linearGradient>
+    <linearGradient id="plcFace" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#1c3f7a"/>
+      <stop offset="100%" stop-color="#0d254d"/>
+    </linearGradient>
+    <linearGradient id="termBg" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#111c36"/>
+      <stop offset="100%" stop-color="#080e1e"/>
+    </linearGradient>
+    <linearGradient id="footerBg" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#0a1830" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#0a1830"/>
+      <stop offset="100%" stop-color="#060e20"/>
+    </linearGradient>
+    <linearGradient id="ledG" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#5dff9a"/>
+      <stop offset="100%" stop-color="#00c853"/>
+    </linearGradient>
+    <linearGradient id="purpleCard" x1="0" y1="0" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#1a0e40" stop-opacity="0.97"/>
+      <stop offset="100%" stop-color="#0d0828" stop-opacity="0.97"/>
+    </linearGradient>
+    <linearGradient id="dotnetPill" x1="0" y1="0" x2="1" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0%" stop-color="#5a2ed6"/>
+      <stop offset="100%" stop-color="#7b52f5"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1536" height="1024" fill="url(#bg)"/>
+
+  <g stroke="#1e3a6a" stroke-width="0.4" opacity="0.3">
+    <line x1="0" y1="128" x2="1536" y2="128"/><line x1="0" y1="256" x2="1536" y2="256"/>
+    <line x1="0" y1="384" x2="1536" y2="384"/><line x1="0" y1="512" x2="1536" y2="512"/>
+    <line x1="0" y1="640" x2="1536" y2="640"/><line x1="0" y1="768" x2="1536" y2="768"/>
+    <line x1="0" y1="896" x2="1536" y2="896"/>
+    <line x1="192" y1="0" x2="192" y2="1024"/><line x1="384" y1="0" x2="384" y2="1024"/>
+    <line x1="576" y1="0" x2="576" y2="1024"/><line x1="768" y1="0" x2="768" y2="1024"/>
+    <line x1="960" y1="0" x2="960" y2="1024"/><line x1="1152" y1="0" x2="1152" y2="1024"/>
+    <line x1="1344" y1="0" x2="1344" y2="1024"/>
+  </g>
+
+  <rect x="0" y="0" width="1536" height="5" fill="url(#hline)"/>
+
+  <text x="768" y="108" text-anchor="middle" font-family="Arial Black, Impact, sans-serif" font-size="96" font-weight="900" fill="#ffffff" letter-spacing="8">S7COMM-PLUS</text>
+  <rect x="180" y="122" width="1176" height="4" rx="2" fill="url(#hline)"/>
+  <text x="768" y="168" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="400" fill="#6aaff0" letter-spacing="7">INDUSTRIAL AUTOMATION PROTOCOL</text>
+
+  <!-- CARD 1: PLC -->
+  <g transform="translate(118,195)">
+    <rect width="390" height="545" rx="16" fill="url(#cardBg)" stroke="#2055a0" stroke-width="2"/>
+    <rect x="38" y="28" width="314" height="400" rx="10" fill="url(#plcFace)" stroke="#2a6abb" stroke-width="1.5"/>
+    <rect x="38" y="28" width="314" height="38" rx="10" fill="#0d1e42"/>
+    <rect x="38" y="52" width="314" height="14" fill="#0d1e42"/>
+    <text x="195" y="53" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#8bbfff" letter-spacing="5">SIEMENS</text>
+    <rect x="38" y="78" width="314" height="18" rx="3" fill="#070f22"/>
+    <rect x="52" y="82" width="20" height="10" rx="3" fill="url(#ledG)"/>
+    <rect x="80" y="82" width="20" height="10" rx="3" fill="url(#ledG)"/>
+    <rect x="108" y="82" width="20" height="10" rx="3" fill="#ff4444"/>
+    <rect x="136" y="82" width="20" height="10" rx="3" fill="url(#ledG)"/>
+    <rect x="164" y="82" width="20" height="10" rx="3" fill="url(#ledG)"/>
+    <rect x="192" y="82" width="20" height="10" rx="3" fill="#ffaa00"/>
+    <rect x="220" y="82" width="20" height="10" rx="3" fill="url(#ledG)"/>
+    <rect x="248" y="82" width="20" height="10" rx="3" fill="url(#ledG)"/>
+    <rect x="276" y="82" width="20" height="10" rx="3" fill="url(#ledG)"/>
+    <rect x="304" y="82" width="20" height="10" rx="3" fill="url(#ledG)"/>
+    <rect x="38" y="108" width="314" height="110" rx="5" fill="#0a1830" stroke="#1a4888" stroke-width="1"/>
+    <text x="195" y="156" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="28" font-weight="900" fill="#4a9eff">CPU 1516</text>
+    <text x="195" y="186" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#4a78a0">S7-1500</text>
+    <rect x="38" y="230" width="148" height="88" rx="5" fill="#091428" stroke="#1a4888" stroke-width="1"/>
+    <text x="112" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#7ab8ff">DI / DQ</text>
+    <text x="112" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#3e6a90">16 x 24V DC</text>
+    <rect x="204" y="230" width="148" height="88" rx="5" fill="#091428" stroke="#1a4888" stroke-width="1"/>
+    <text x="278" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#7ab8ff">AI / AQ</text>
+    <text x="278" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#3e6a90">8 x ±10V</text>
+    <rect x="38" y="330" width="314" height="30" rx="3" fill="#050c1a" stroke="#1a3a6a" stroke-width="1"/>
+    <rect x="52" y="336" width="14" height="18" rx="2" fill="#1e4a90"/>
+    <rect x="74" y="336" width="14" height="18" rx="2" fill="#1e4a90"/>
+    <rect x="96" y="336" width="14" height="18" rx="2" fill="#3a6aa0"/>
+    <rect x="118" y="336" width="14" height="18" rx="2" fill="#1e4a90"/>
+    <rect x="140" y="336" width="14" height="18" rx="2" fill="#1e4a90"/>
+    <rect x="162" y="336" width="14" height="18" rx="2" fill="#3a6aa0"/>
+    <rect x="184" y="336" width="14" height="18" rx="2" fill="#1e4a90"/>
+    <rect x="206" y="336" width="14" height="18" rx="2" fill="#1e4a90"/>
+    <rect x="228" y="336" width="14" height="18" rx="2" fill="#1e4a90"/>
+    <rect x="250" y="336" width="14" height="18" rx="2" fill="#3a6aa0"/>
+    <rect x="272" y="336" width="14" height="18" rx="2" fill="#1e4a90"/>
+    <rect x="294" y="336" width="14" height="18" rx="2" fill="#1e4a90"/>
+    <rect x="316" y="336" width="14" height="18" rx="2" fill="#1e4a90"/>
+    <rect x="38" y="372" width="314" height="30" rx="3" fill="#030a15" stroke="#1a3a6a" stroke-width="1"/>
+    <text x="195" y="393" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#3a8fff" letter-spacing="3">PROFINET</text>
+    <text x="195" y="470" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="22" font-weight="900" fill="#ffffff">Siemens S7-1500</text>
+    <text x="195" y="500" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" fill="#4a88c0">Industrial PLC</text>
+  </g>
+
+  <!-- CARD 2: C# .NET -->
+  <g transform="translate(553,195)">
+    <rect width="390" height="545" rx="16" fill="url(#purpleCard)" stroke="#6030cc" stroke-width="2"/>
+    <circle cx="195" cy="210" r="130" fill="#2a1060" opacity="0.5"/>
+    <circle cx="195" cy="210" r="105" fill="#3a1880" opacity="0.4"/>
+    <path d="M232,110 A90,90 0 1,0 232,310" fill="none" stroke="#b060ff" stroke-width="36" stroke-linecap="butt"/>
+    <line x1="258" y1="128" x2="246" y2="292" stroke="#8040ee" stroke-width="18" stroke-linecap="square"/>
+    <line x1="296" y1="128" x2="284" y2="292" stroke="#8040ee" stroke-width="18" stroke-linecap="square"/>
+    <line x1="238" y1="172" x2="308" y2="172" stroke="#8040ee" stroke-width="15" stroke-linecap="square"/>
+    <line x1="230" y1="248" x2="300" y2="248" stroke="#8040ee" stroke-width="15" stroke-linecap="square"/>
+    <rect x="72" y="338" width="246" height="58" rx="29" fill="url(#dotnetPill)" stroke="#9b6fff" stroke-width="2"/>
+    <text x="195" y="377" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="30" font-weight="900" fill="#ffffff">.NET</text>
+    <text x="195" y="460" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="22" font-weight="900" fill="#ffffff">C# / .NET</text>
+    <text x="195" y="490" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" fill="#9b79f5">Client Framework</text>
+  </g>
+
+  <!-- CARD 3: Terminal -->
+  <g transform="translate(988,195)">
+    <rect width="390" height="545" rx="16" fill="url(#cardBg)" stroke="#1a7a50" stroke-width="2"/>
+    <rect x="25" y="28" width="340" height="382" rx="10" fill="url(#termBg)" stroke="#1a3a60" stroke-width="1.5"/>
+    <rect x="25" y="28" width="340" height="38" rx="10" fill="#161f38"/>
+    <rect x="25" y="52" width="340" height="14" fill="#161f38"/>
+    <circle cx="52" cy="47" r="8" fill="#ff5f57"/>
+    <circle cx="77" cy="47" r="8" fill="#febc2e"/>
+    <circle cx="102" cy="47" r="8" fill="#28c840"/>
+    <text x="195" y="52" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#6a9fd0">s7comm-plus — bash</text>
+    <text x="44" y="96" font-family="Courier New, monospace" font-size="14" fill="#4eff91">$ dotnet s7comm connect</text>
+    <text x="44" y="120" font-family="Courier New, monospace" font-size="13" fill="#6aaad0">  Host: 192.168.1.100</text>
+    <text x="44" y="144" font-family="Courier New, monospace" font-size="13" fill="#6aaad0">  Port: 102  (TLS)</text>
+    <text x="44" y="168" font-family="Courier New, monospace" font-size="14" fill="#4eff91">&#10003; TLS handshake OK</text>
+    <text x="44" y="192" font-family="Courier New, monospace" font-size="14" fill="#4eff91">&#10003; Auth success</text>
+    <text x="44" y="218" font-family="Courier New, monospace" font-size="13" fill="#6aaad0">$ read-tag "Motor.Speed"</text>
+    <text x="44" y="244" font-family="Courier New, monospace" font-size="14" fill="#ffd700">  &#9658; 1450.0 RPM</text>
+    <text x="44" y="270" font-family="Courier New, monospace" font-size="13" fill="#6aaad0">$ write-tag "Pump.On" true</text>
+    <text x="44" y="296" font-family="Courier New, monospace" font-size="14" fill="#4eff91">&#10003; Tag written OK</text>
+    <text x="44" y="322" font-family="Courier New, monospace" font-size="13" fill="#6aaad0">$ monitor --interval 500</text>
+    <text x="44" y="348" font-family="Courier New, monospace" font-size="14" fill="#4eff91">  Streaming data...</text>
+    <rect x="44" y="362" width="10" height="16" rx="1" fill="#4eff91"/>
+    <text x="195" y="460" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="22" font-weight="900" fill="#ffffff">Terminal</text>
+    <text x="195" y="490" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" fill="#3ecf90">Secure CLI Access</text>
+  </g>
+
+  <!-- Arrows -->
+  <line x1="514" y1="468" x2="542" y2="468" stroke="#2a8fff" stroke-width="3" stroke-dasharray="8,4"/>
+  <polygon points="537,459 553,468 537,477" fill="#2a8fff"/>
+  <line x1="949" y1="468" x2="977" y2="468" stroke="#2a8fff" stroke-width="3" stroke-dasharray="8,4"/>
+  <polygon points="972,459 988,468 972,477" fill="#2a8fff"/>
+  <g transform="translate(768,468)">
+    <circle cx="0" cy="0" r="28" fill="#0a1830" stroke="#2a8fff" stroke-width="2"/>
+    <path d="M-10,-5 Q-10,-18 0,-18 Q10,-18 10,-5 L10,11 Q10,14 7,14 L-7,14 Q-10,14 -10,11 Z" fill="none" stroke="#2a8fff" stroke-width="2.5" stroke-linejoin="round"/>
+    <rect x="-4" y="2" width="8" height="9" rx="2" fill="#2a8fff"/>
+  </g>
+
+  <!-- Footer -->
+  <rect x="0" y="758" width="1536" height="266" fill="url(#footerBg)"/>
+  <rect x="0" y="758" width="1536" height="4" fill="url(#hline)"/>
+
+  <!-- Shield -->
+  <g transform="translate(307,820)">
+    <path d="M0,-26 L20,-16 L20,4 Q20,22 0,32 Q-20,22 -20,4 L-20,-16 Z" fill="#0d2040" stroke="#2a8fff" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M-8,4 L-2,12 L10,-6" fill="none" stroke="#4eff91" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <!-- Lock icon -->
+  <g transform="translate(537,820)">
+    <rect x="-17" y="-6" width="34" height="28" rx="5" fill="#0d2040" stroke="#2a8fff" stroke-width="2.5"/>
+    <path d="M-9,-6 Q-9,-24 0,-24 Q9,-24 9,-6" fill="none" stroke="#2a8fff" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="0" cy="8" r="5" fill="#2a8fff"/>
+  </g>
+  <!-- Certificate -->
+  <g transform="translate(999,820)">
+    <rect x="-18" y="-26" width="36" height="50" rx="5" fill="#0d2040" stroke="#2a8fff" stroke-width="2.5"/>
+    <line x1="-9" y1="-14" x2="9" y2="-14" stroke="#2a8fff" stroke-width="2"/>
+    <line x1="-9" y1="-4" x2="9" y2="-4" stroke="#2a8fff" stroke-width="2"/>
+    <circle cx="0" cy="10" r="7" fill="none" stroke="#4eff91" stroke-width="2"/>
+  </g>
+  <!-- Key -->
+  <g transform="translate(1229,820)">
+    <circle cx="-14" cy="-2" r="13" fill="#0d2040" stroke="#2a8fff" stroke-width="2.5"/>
+    <circle cx="-14" cy="-2" r="5" fill="#2a8fff"/>
+    <rect x="0" y="-5" width="30" height="6" rx="2" fill="#2a8fff"/>
+    <rect x="22" y="1" width="5" height="9" rx="2" fill="#2a8fff"/>
+    <rect x="14" y="1" width="5" height="7" rx="2" fill="#2a8fff"/>
+  </g>
+
+  <!-- Footer text: 2 lines -->
+  <text x="768" y="900" text-anchor="middle" font-family="Arial Black, Impact, sans-serif" font-size="42" font-weight="900" fill="#ffffff" letter-spacing="3">TLS (TRANSPORT LAYER SECURITY)</text>
+  <text x="768" y="958" text-anchor="middle" font-family="Arial Black, Impact, sans-serif" font-size="42" font-weight="900" fill="#4a9eff" letter-spacing="3">&amp; SECURE SYMBOLIC DATA ACCESS</text>
+
+  <rect x="0" y="1019" width="1536" height="5" fill="url(#hline)"/>
+  <text x="48" y="1010" font-family="Arial, sans-serif" font-size="14" fill="#2a5080" letter-spacing="2">RFC 5246</text>
+  <text x="1488" y="1010" text-anchor="end" font-family="Arial, sans-serif" font-size="14" fill="#2a5080" letter-spacing="2">v2.0</text>
+</svg>
