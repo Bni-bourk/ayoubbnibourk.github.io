@@ -1,27 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
-<url>
-  <loc>https://bnitech.it.com/</loc>
-  <lastmod>2025-10-17T10:37:51+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://bnitech.it.com/CV-Ayoub-Bni-Bourk-EN.pdf</loc>
-  <lastmod>2025-10-17T10:37:51+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://bnitech.it.com/CV-Ayoub-Bni-Bourk-FR.pdf</loc>
-  <lastmod>2025-10-17T10:37:51+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://ayoubbnibourk.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ayoubbnibourk.com/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://ayoubbnibourk.com/?lang=fr"/>
+    <lastmod>2026-11-11</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://ayoubbnibourk.com/CV-Ayoub-Bni-Bourk-EN.pdf</loc>
+    <lastmod>2026-11-11</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ayoubbnibourk.com/CV-Ayoub-Bni-Bourk-FR.pdf</loc>
+    <lastmod>2026-11-11</lastmod>
+    <priority>0.8</priority>
+  </url>
 </urlset>

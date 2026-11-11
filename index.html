@@ -1,375 +1,947 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-theme="dark">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>Ayoub Bni-Bourk — Automation Specialist · PLC, Motion Control, Vision, DCS</title>
+  <meta name="description"
+    content="Automation specialist in Tangier, Morocco. PLC programming and commissioning, troubleshooting, motion control, vision systems, SCADA and DCS. Available for freelance projects and new roles.">
+  <meta name="author" content="Ayoub Bni-Bourk">
+  <meta name="theme-color" content="#0a0f14">
+
+  <!-- Change the domain here, in sitemap.xml and in robots.txt if your address changes -->
+  <link rel="canonical" href="https://ayoubbnibourk.com/">
+  <link rel="alternate" hreflang="en" href="https://ayoubbnibourk.com/">
+  <link rel="alternate" hreflang="fr" href="https://ayoubbnibourk.com/?lang=fr">
+  <link rel="alternate" hreflang="x-default" href="https://ayoubbnibourk.com/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Ayoub Bni-Bourk">
+  <meta property="og:title" content="Ayoub Bni-Bourk — Automation Specialist">
+  <meta property="og:description"
+    content="PLC programming and commissioning, troubleshooting, motion control, vision systems, SCADA and DCS. WorldSkills Lyon 2024 Best of Nation. Available for freelance projects and new roles.">
+  <meta property="og:url" content="https://ayoubbnibourk.com/">
+  <meta property="og:image" content="https://ayoubbnibourk.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <link rel="preload" href="assets/fonts/barlow-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <script>
+    /* Runs before first paint: theme + language, so nothing flashes. */
+    (function () {
+      var d = document.documentElement, t = null, l = null;
+      d.classList.add('js');
+      try { t = localStorage.getItem('theme'); l = localStorage.getItem('lang'); } catch (e) { }
+      if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
+      var q = /[?&]lang=(fr|en)/.exec(location.search);
+      if (q) l = q[1];
+      if (l !== 'fr' && l !== 'en') l = /^fr/i.test(navigator.language || '') ? 'fr' : 'en';
+      d.setAttribute('data-lang', l);
+    })();
+  </script>
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Ayoub Bni-bourk",
-    "url": "https://bnitech.it.com"
+    "@type": "Person",
+    "name": "Ayoub Bni-Bourk",
+    "jobTitle": "Automation Specialist",
+    "description": "Automation specialist working on PLCs, motion control, servo drives, vision systems, SCADA and DCS in process plants and in manufacturing.",
+    "url": "https://ayoubbnibourk.com/",
+    "image": "https://ayoubbnibourk.com/assets/img/ayoub-portrait-640.webp",
+    "email": "mailto:ayoubbnibourk728@gmail.com",
+    "telephone": "+212674335326",
+    "address": { "@type": "PostalAddress", "addressLocality": "Tangier", "addressCountry": "MA" },
+    "worksFor": { "@type": "Organization", "name": "SFC Solution" },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "ENSA Kenitra, Ibn Tofail University" },
+      { "@type": "CollegeOrUniversity", "name": "ENSAM" },
+      { "@type": "EducationalOrganization", "name": "OFPPT Agadir" }
+    ],
+    "award": "WorldSkills Lyon 2024 — Best of Nation (Mechatronics)",
+    "knowsLanguage": ["Amazigh", "Arabic", "French", "English"],
+    "knowsAbout": ["PLC programming", "Siemens TIA Portal", "Motion control", "Servo drives", "Machine vision", "SCADA", "DCS", "Yokogawa CENTUM VP", "Emerson DeltaV", "WinCC Professional", "Profinet", "Modbus TCP", "OPC", "PID control", "Industrial commissioning"],
+    "sameAs": [
+      "https://www.linkedin.com/in/ayoub-bni-bourk-136444172/",
+      "https://github.com/Bni-bourk",
+      "https://www.credly.com/users/ayoub-bni-bourk/"
+    ]
   }
   </script>
-
-  <title>Ayoub Bni-bourk — Automation & DCS Specialist</title>
-  <meta name="description"
-    content="Automation & DCS Specialist focusing on PLC programming, industrial networks, and commissioning. WorldSkills Mechatronics medalist.">
-
-  <link rel="icon" href="/My%20icon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="/My%20icon.ico" type="image/x-icon">
-
-  <meta property="og:title" content="Ayoub Bni-bourk — Automation & DCS Specialist">
-  <meta property="og:site_name" content="Ayoub Bni-bourk">
-  <meta property="og:description" content="DCS (CENTUM VP, DeltaV) and PLC systems specialist.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://bnitech.it.com">
-
-  <link rel="stylesheet" href="styles.css" />
-  <script>
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
-    document.documentElement.setAttribute('data-theme', initialTheme);
-    document.addEventListener('DOMContentLoaded', () => {
-      document.body.classList.remove('preload');
-    });
-  </script>
-  <script src="app.js" defer></script>
 </head>
 
-<body id="top" class="preload">
-  <div id="diagMask" class="diag-mask" aria-hidden="true">
-    <div class="diag-mask__slab"></div>
-  </div>
-  <!-- Top Bar -->
-  <header class="site-header">
-    <div class="container nav">
-      <a href="#top" class="brand">AB</a>
-      <!-- Hamburger toggle (hidden checkbox) -->
-      <input type="checkbox" id="menuToggle" hidden>
-      <label for="menuToggle" class="hamburger" aria-label="Toggle navigation" aria-controls="navMenu"
-        aria-expanded="false">
-        <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
-          <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-        </svg>
-      </label>
+<body>
+  <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
 
-      <!-- Backdrop that closes the drawer when tapped -->
-      <label for="menuToggle" class="scrim" aria-hidden="true"></label>
-      <nav class="links" id="navMenu">
-        <a class="nav-link" href="#about">About</a>
-        <a class="nav-link" href="#skills">Skills</a>
-        <a class="nav-link" href="#projects">Projects</a>
-        <a class="nav-link" href="#experience">Experience</a>
-        <a class="nav-link" href="#education">Education</a>
-        <a class="nav-link" href="#awards">Awards</a>
-        <a class="nav-link" href="#contact">Contact</a>
+  <!-- Icons -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+      <symbol id="i-ext" viewBox="0 0 24 24"><path d="M8 16 16.5 7.5M9 7h8v8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+      <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2" /><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" /></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.8" /><path d="m3.5 7 8.5 6 8.5-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+      <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 19.5 5.3 15A8 8 0 1 1 9 18.7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" /><path d="M9 10.5c.4 2 2 3.6 4.2 4.2l1.3-1.3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></symbol>
+      <symbol id="i-in" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3" fill="none" stroke="currentColor" stroke-width="1.8" /><path d="M8 11v6m4 0v-3.5a2 2 0 0 1 4 0V17m-4-6v1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /><circle cx="8" cy="7.8" r="1.1" fill="currentColor" /></symbol>
+      <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 8-4 4 4 4m8-8 4 4-4 4M13.5 6l-3 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+      <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="5" fill="none" stroke="currentColor" stroke-width="1.8" /><path d="m9 13.5-1.5 7 4.5-2.5 4.5 2.5-1.5-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" /></symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="1.8" /><path d="M5 15V6a2 2 0 0 1 2-2h8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" /><circle cx="12" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="1.8" /></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" /></symbol>
+    </defs>
+  </svg>
+
+  <!-- ============ HEADER ============ -->
+  <header class="top" id="siteHeader">
+    <div class="wrap top__in">
+      <a class="brand" href="#top" aria-label="Ayoub Bni-Bourk — home">
+        <span class="brand__mark" aria-hidden="true">AB</span>
+        <span class="brand__name">Ayoub Bni-Bourk</span>
+      </a>
+
+      <nav class="menu" id="menu" aria-label="Main">
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#services" data-i18n="nav.services">Services</a>
+        <a href="#work" data-i18n="nav.work">Work</a>
+        <a href="#experience" data-i18n="nav.experience">Experience</a>
+        <a href="#skills" data-i18n="nav.skills">Skills</a>
+        <a href="#worldskills">WorldSkills</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
       </nav>
-      <!-- Theme toggle (CSS-only) -->
-      <!-- WITH THIS: -->
-      <button id="themeSwitch" class="btn-icon" aria-label="Toggle dark mode">
-        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="1.5" />
-          <g stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-            <path d="M12 2v2m0 16v2M4 12H2m20 0h-2" />
-            <path d="m5.64 5.64.7.7m11.32 11.32.7.7m-12.02-.7.7-.7m11.32-11.32.7-.7" />
-          </g>
-        </svg>
-        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true" style="display:none">
-          <path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-            d="M20.5 14.5a8.5 8.5 0 1 1-8.5-8.5 6.5 6.5 0 0 0 8.5 8.5z" />
-        </svg>
-      </button>
+
+      <div class="top__tools">
+        <div class="lang" role="group" aria-label="Language">
+          <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+          <button type="button" data-set-lang="fr" aria-pressed="false">FR</button>
+        </div>
+        <button class="iconbtn" id="themeBtn" type="button" aria-label="Switch between dark and light theme"
+          data-i18n-attr="aria-label:theme.label">
+          <svg class="ico ico--sun" aria-hidden="true"><use href="#i-sun" /></svg>
+          <svg class="ico ico--moon" aria-hidden="true"><use href="#i-moon" /></svg>
+        </button>
+        <a class="btn btn--sm top__cta" href="#contact" data-i18n="nav.cta">Start a project</a>
+        <button class="iconbtn burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false"
+          aria-controls="menu" data-i18n-attr="aria-label:menu.label">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
+    <div class="top__progress" aria-hidden="true"><span id="progress"></span></div>
   </header>
 
-  <main class="container">
-    <!-- HERO (Option A) -->
-    <section id="home" class="hero reveal">
-      <div class="hero-left">
-        <h1 class="title">Automation & Instrumentation Technician</h1>
-        <p class="lead">
-          I build reliable control systems (Yokogawa & Emerson DCS; Siemens, Schneider & Opto 22 PLCs)
-          with clean logic, modern features, robust networks, and seamless commissioning.
-        </p>
+  <main id="main">
 
-        <div class="cta-row">
-          <a class="btn primary"
-            href="https://script.google.com/macros/s/AKfycbwLgLW7gB7gdtmEnRhcrh9pupmcNH2-lowdPL0bWSpJl7Fq71GJiL6lwBsBsDbLvSXFxg/exec"
-            target="_blank">Work With Me</a>
-          <a class="btn primary" href="#projects">View Projects</a>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top">
+      <canvas class="hero__bg" id="heroBg" aria-hidden="true"></canvas>
+      <div class="wrap hero__grid">
 
-          <div class="dropdown" data-cv>
-            <button class="btn primary">Download CV</button>
-            <div class="dropdown-menu" role="menu" aria-label="Download CV versions">
-              <a role="menuitem" href="CV-Ayoub-Bni-Bourk-EN.pdf" target="_blank" rel="noopener" download>English</a>
-              <a role="menuitem" href="CV-Ayoub-Bni-Bourk-FR.pdf" target="_blank" rel="noopener" download>Français</a>
+        <div class="hero__copy">
+          <p class="status" data-seq="0">
+            <span class="led led--run" aria-hidden="true"></span>
+            <span data-i18n="hero.status">Available for freelance projects and new roles</span>
+          </p>
 
-            </div>
+          <h1 class="hero__h1">
+            <span class="hero__kicker" data-seq="1">Ayoub Bni-Bourk · <span data-i18n="hero.role">Automation Specialist</span></span>
+            <span class="hero__words">
+              <span class="hero__word" data-seq="2" data-i18n="hero.w1">Programmed.</span>
+              <span class="hero__word" data-seq="3" data-i18n="hero.w2">Commissioned.</span>
+              <span class="hero__word hero__word--run" data-seq="4" data-i18n="hero.w3">Running.</span>
+            </span>
+          </h1>
+
+          <p class="hero__lead" data-seq="5" data-i18n="hero.lead">
+            I program, commission and troubleshoot PLCs, servo drives, vision systems and DCS,
+            in process plants and in manufacturing. Based in Tangier, Morocco.
+          </p>
+
+          <div class="hero__cta" data-seq="6">
+            <a class="btn" href="#contact"><span data-i18n="hero.cta1">Start a project</span>
+              <svg class="ico" aria-hidden="true"><use href="#i-arrow" /></svg></a>
+            <a class="btn btn--ghost" href="#work" data-i18n="hero.cta2">See my work</a>
+            <span class="cvlinks">
+              <svg class="ico" aria-hidden="true"><use href="#i-down" /></svg>
+              <span data-i18n="hero.cv">CV</span>
+              <a href="CV-Ayoub-Bni-Bourk-EN.pdf" download>EN</a>
+              <a href="CV-Ayoub-Bni-Bourk-FR.pdf" download>FR</a>
+            </span>
           </div>
+
+          <ul class="readouts" data-seq="7">
+            <li><b data-count="7">7</b><span data-i18n="hero.r1">PLC brands programmed</span></li>
+            <li><b data-count="2">2</b><span data-i18n="hero.r2">DCS platforms</span></li>
+            <li><b data-count="5">5</b><span data-i18n="hero.r3">industrial networks</span></li>
+            <li class="readouts__award">
+              <svg class="ico" aria-hidden="true"><use href="#i-award" /></svg>
+              <span data-i18n="hero.r4">WorldSkills Lyon 2024<br>Best of Nation</span>
+            </li>
+          </ul>
         </div>
 
+        <!-- Live PID faceplate -->
+        <div class="hero__panel" data-seq="5">
+          <figure class="plate" id="pid">
+            <header class="plate__bar">
+              <span class="tag">TIC-101</span>
+              <span class="plate__title" data-i18n="pid.title">Evaporator oil temperature</span>
+              <span class="plate__live"><span class="led led--run" aria-hidden="true"></span><span data-i18n="pid.live">Live</span></span>
+            </header>
 
-        <div id="statsRow" class="stats-row chips"></div>
+            <div class="plate__trend">
+              <canvas id="pidTrend" role="img"
+                aria-label="Live trend of setpoint, process value and controller output"
+                data-i18n-attr="aria-label:pid.aria"></canvas>
+            </div>
+
+            <dl class="plate__vals">
+              <div class="v v--sp"><dt>SP</dt><dd><output id="pidSp">120.0</output><small>°C</small></dd></div>
+              <div class="v v--pv"><dt>PV</dt><dd><output id="pidPv">120.0</output><small>°C</small></dd></div>
+              <div class="v v--out"><dt>OUT</dt><dd><output id="pidOut">63.3</output><small>%</small></dd></div>
+            </dl>
+
+            <div class="plate__ctl">
+              <div class="stepper" role="group" aria-label="Setpoint" data-i18n-attr="aria-label:pid.sp">
+                <button type="button" id="pidDown" aria-label="Lower" data-i18n-attr="aria-label:pid.lower">−</button>
+                <span id="pidWhat">SP</span>
+                <button type="button" id="pidUp" aria-label="Raise" data-i18n-attr="aria-label:pid.raise">+</button>
+              </div>
+              <button class="hbtn" type="button" id="pidDist" data-i18n="pid.dist">Disturb</button>
+              <div class="seg" role="group" aria-label="Controller mode" data-i18n-attr="aria-label:pid.mode">
+                <button type="button" id="pidAuto" aria-pressed="true">AUTO</button>
+                <button type="button" id="pidMan" aria-pressed="false">MAN</button>
+              </div>
+            </div>
+
+            <figcaption class="plate__cap" data-i18n="pid.cap">
+              A real PID loop simulated in your browser. Move the setpoint, disturb it or take it in manual.
+              On site I built this one on an evaporator with PID_Compact.
+            </figcaption>
+          </figure>
+        </div>
+
       </div>
+    </section>
 
-      <div class="hero-right">
-        <div class="avatar-wrap">
-          <img height="200" width="200" loading="eager" src="avatar.webp" alt="Portrait of Ayoub Bni-bourk"
-            class="avatar" />
+    <!-- ============ PLATFORMS MARQUEE ============ -->
+    <div class="ticker" aria-label="Platforms and protocols" data-i18n-attr="aria-label:ticker.label">
+      <div class="ticker__track" id="ticker">
+        <ul>
+          <li>Siemens S7-1500 / 1200</li>
+          <li>TIA Portal</li>
+          <li>Yokogawa CENTUM VP</li>
+          <li>Emerson DeltaV</li>
+          <li>WinCC Professional</li>
+          <li>Trio Motion</li>
+          <li>Keyence Vision</li>
+          <li>Mitsubishi</li>
+          <li>GE Fanuc</li>
+          <li>Unitronics</li>
+          <li>Schneider</li>
+          <li>Profinet</li>
+          <li>Profibus</li>
+          <li>Modbus TCP</li>
+          <li>IO-Link</li>
+          <li>OPC</li>
+          <li>AVEVA PI</li>
+          <li>Python · Snap7</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="sec" id="about">
+      <div class="wrap">
+        <header class="sec__head" data-rung>
+          <p class="sec__net"><span data-i18n="net">Network</span> 1</p>
+          <h2 data-i18n="about.title">Process plants and production machines</h2>
+          <div class="rung" aria-hidden="true">
+            <i class="rung__rail"></i><i class="rung__wire rung__wire--a"></i>
+            <span class="rung__contact"><em>"in_view"</em></span>
+            <i class="rung__wire rung__wire--b"></i>
+            <span class="rung__coil"><em>"about"</em></span>
+            <i class="rung__wire rung__wire--c"></i><i class="rung__rail"></i>
+          </div>
+        </header>
+
+        <div class="about">
+          <div class="about__text" data-reveal>
+            <p class="lede" data-i18n="about.p1">
+              I'm an automation specialist at SFC Solution in Tangier. Before that I worked on the phosphoric acid
+              lines at OCP Jorf Lasfar, commissioned Siemens PLCs with SSE MENA and worked in the design office
+              at Actemium (VINCI Energies).
+            </p>
+            <p data-i18n="about.p2">
+              Most of my work is one of two things: finding out why a machine or a control loop does not behave,
+              and writing the program or the tool that removes a manual task. I work on PLCs from different brands,
+              motion control, servo drives and vision systems, and on DCS in process plants.
+            </p>
+            <p data-i18n="about.p3">
+              In 2024 I represented Morocco in Mechatronics at WorldSkills Lyon and received the “Best of Nation”
+              medal. I'm now doing a Master's in Electromechanical Engineering at ENSA Kenitra alongside my job.
+            </p>
+
+            <dl class="facts">
+              <div><dt data-i18n="about.f1k">Based in</dt><dd data-i18n="about.f1v">Tangier, Morocco</dd></div>
+              <div><dt data-i18n="about.f2k">Current role</dt><dd data-i18n="about.f2v">Automation Specialist, SFC Solution</dd></div>
+              <div><dt data-i18n="about.f3k">Languages</dt><dd data-i18n="about.f3v">Amazigh and Arabic (native), French (professional), English (fluent)</dd></div>
+              <div><dt data-i18n="about.f4k">Studying</dt><dd data-i18n="about.f4v">Master's (MUS), Electromechanical Engineering of Industrial Systems, ENSA Kenitra</dd></div>
+            </dl>
+          </div>
+
+          <figure class="idcard" data-reveal>
+            <div class="idcard__photo">
+              <img src="assets/img/ayoub-portrait-640.webp"
+                srcset="assets/img/ayoub-portrait-320.webp 320w, assets/img/ayoub-portrait-640.webp 640w"
+                sizes="(min-width: 900px) 340px, 70vw" width="640" height="640" loading="lazy" decoding="async"
+                alt="Portrait of Ayoub Bni-Bourk" data-i18n-attr="alt:about.alt">
+            </div>
+            <figcaption>
+              <span class="tag">ID · 001</span>
+              <strong>Ayoub Bni-Bourk</strong>
+              <span data-i18n="hero.role">Automation Specialist</span>
+              <span class="idcard__loc"><svg class="ico" aria-hidden="true"><use href="#i-pin" /></svg><span data-i18n="about.f1v">Tangier, Morocco</span></span>
+            </figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
-    <!-- ABOUT (Option C) -->
-    <section id="about" class="section reveal">
-      <h2 class="section-title">About Me</h2>
-      <article class="card">
-        <p class="muted">
-          I’m Ayoub Bni-Bourk, an Automation & Instrumentation Technician. I build and maintain
-          DCS (Yokogawa CENTUM VP, Emerson DeltaV) and PLC systems (Siemens, Schneider, Opto 22) for process plants.
-          Day to day, I tune loops, clean up interlocks, design operator-friendly graphics/faceplates, and
-          support commissioning so production starts smooth and stays stable.
-        </p>
-        <p class="muted">
-          My approach is practical: clean logic and naming, clear cause-and-effect, and documentation that helps
-          the next person—P&amp;IDs, I/O lists, alarm rationalization notes, FAT/SAT checklists, and handover packs.
-          On the comms side I work with Profinet, Profibus, Modbus/TCP, and IO-Link, and I’m comfortable
-          troubleshooting networks and devices on site.
-        </p>
-        <p class="muted">
-          Recently I’ve been with OCP Maintenance Solutions on CENTUM VP &amp; DeltaV operations and troubleshooting.
-          Earlier, at Actemium (VINCI Energies), I contributed in the design office (AutoCAD Electrical, Navisworks,
-          Excel/VBScript instrument sheets). At SSE MENA, I helped program and commission Siemens S7-1500/ET200 with
-          WinCC
-          for a CaF₂ production line. I’m a WorldSkills Mechatronics <strong>Bronze</strong> medalist (2024), and I work
-          easily across teams in Arabic, Amazigh, French, and English.
-        </p>
-        <div class="highlight-chips chips">
-          <span class="chip">Documentation &amp; Handover: P&amp;IDs • I/O • FAT/SAT</span>
-          <span class="chip">Industrial networks: Profinet • Profibus • Modbus/TCP • IO-Link</span>
-          <a class="chip" href="https://www.credly.com/users/ayoub-bni-bourk/" target="_blank" rel="noopener"
-            aria-label="WorldSkills Bronze (Mechatronics)">
-            🥉 WorldSkills Bronze (Mechatronics)
-          </a>
+    <!-- ============ SERVICES ============ -->
+    <section class="sec sec--alt" id="services">
+      <div class="wrap">
+        <header class="sec__head" data-rung>
+          <p class="sec__net"><span data-i18n="net">Network</span> 2</p>
+          <h2 data-i18n="svc.title">What I can do on your machine or plant</h2>
+          <div class="rung" aria-hidden="true">
+            <i class="rung__rail"></i><i class="rung__wire rung__wire--a"></i>
+            <span class="rung__contact"><em>"in_view"</em></span>
+            <i class="rung__wire rung__wire--b"></i>
+            <span class="rung__coil"><em>"services"</em></span>
+            <i class="rung__wire rung__wire--c"></i><i class="rung__rail"></i>
+          </div>
+        </header>
+
+        <ul class="svc">
+          <li class="card svc__item" data-reveal data-spot>
+            <svg class="svc__ico" viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="10" width="36" height="28" rx="2" /><path d="M16 10v28M6 19h10M6 29h10" /><circle cx="24" cy="18" r="1.6" class="dot" /><circle cx="30" cy="18" r="1.6" class="dot" /><circle cx="36" cy="18" r="1.6" class="dot" /><path d="M22 26h16M22 31h16" /></svg>
+            <h3 data-i18n="svc.1t">PLC programming and commissioning</h3>
+            <p data-i18n="svc.1d">Siemens S7-1500 and S7-1200 in TIA Portal with ET200 remote I/O, from hardware configuration to field testing. Also Mitsubishi, Emerson (GE Fanuc), Unitronics, Schneider, Delta and Opto 22.</p>
+          </li>
+          <li class="card svc__item" data-reveal data-spot>
+            <svg class="svc__ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 7 44 40H4z" /><path d="M24 19v10" /><circle cx="24" cy="34" r="1.6" class="dot" /></svg>
+            <h3 data-i18n="svc.2t">Troubleshooting and maintenance</h3>
+            <p data-i18n="svc.2d">Communication faults between PLC, HMI and drives, faulty inputs, axes that lose synchronization. I find the cause on the machine and fix it so production restarts.</p>
+          </li>
+          <li class="card svc__item" data-reveal data-spot>
+            <svg class="svc__ico" viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="8" width="38" height="26" rx="2" /><path d="M18 41h12M24 34v7" /><path d="M10 27l7-8 6 5 6-9 9 7" /></svg>
+            <h3 data-i18n="svc.3t">SCADA, HMI and DCS</h3>
+            <p data-i18n="svc.3d">WinCC Professional supervision, Yokogawa CENTUM VP and Emerson DeltaV. Synoptics, logic changes, and links to the historian so operators see what they need on one screen.</p>
+          </li>
+          <li class="card svc__item" data-reveal data-spot>
+            <svg class="svc__ico" viewBox="0 0 48 48" aria-hidden="true"><circle cx="18" cy="24" r="12" /><path d="M12.5 29V19l5.5 6 5.5-6v10" /><path d="M30 24h13M38 19l5 5-5 5" /></svg>
+            <h3 data-i18n="svc.4t">Motion control and vision</h3>
+            <p data-i18n="svc.4d">Trio Motion controllers, multi-axis servo drives, encoder synchronization, Keyence vision systems and printers, Mitsubishi and Fanuc robots.</p>
+          </li>
+          <li class="card svc__item" data-reveal data-spot>
+            <svg class="svc__ico" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="18" r="12" /><path d="M12 18h24" /><path d="M24 30v6M12 42h24M24 36l-7 6h14z" /></svg>
+            <h3 data-i18n="svc.5t">Process control and instrumentation</h3>
+            <p data-i18n="svc.5d">PID loops and control strategy changes, instrument calibration, variable speed drives (Siemens, ABB, Schneider, Yaskawa), motor control and power distribution.</p>
+          </li>
+          <li class="card svc__item" data-reveal data-spot>
+            <svg class="svc__ico" viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="14" cy="13" rx="8" ry="4" /><path d="M6 13v20c0 2.2 3.6 4 8 4s8-1.8 8-4V13M6 23c0 2.2 3.6 4 8 4s8-1.8 8-4" /><path d="M27 24h15M36 18l6 6-6 6" /></svg>
+            <h3 data-i18n="svc.6t">Data links and custom tools</h3>
+            <p data-i18n="svc.6d">OPC servers, AVEVA PI, Python (Snap7) and Excel/VBA. I connect systems that do not talk to each other and write small tools that replace repetitive manual work.</p>
+          </li>
+        </ul>
+
+        <div class="flow" data-reveal>
+          <h3 class="flow__title" data-i18n="flow.title">How a job goes</h3>
+          <ol class="flow__steps">
+            <li><span class="flow__n">1</span><div><b data-i18n="flow.1t">You describe it</b><span data-i18n="flow.1d">The machine, the fault or what you want automated.</span></div></li>
+            <li><span class="flow__n">2</span><div><b data-i18n="flow.2t">I check and scope</b><span data-i18n="flow.2d">Program, drawings and hardware. I tell you what I will do.</span></div></li>
+            <li><span class="flow__n">3</span><div><b data-i18n="flow.3t">Program and test</b><span data-i18n="flow.3d">Development, then tests on the machine with your team.</span></div></li>
+            <li><span class="flow__n">4</span><div><b data-i18n="flow.4t">Handover</b><span data-i18n="flow.4d">You get the program backup and what changed, written down.</span></div></li>
+          </ol>
         </div>
-      </article>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills" class="section reveal">
-      <h2 class="section-title">Core Skills</h2>
-      <div id="skillsGrid" class="grid skills-grid"></div>
-      <div id="toolsRow" class="chips" style="margin-top:10px"></div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="section projects-new">
-      <h2 class="section-title">Projects</h2>
-      <div id="filterBar" class="filterbar"></div>
-      <div id="projectsGrid" class="projects-grid"></div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience" class="section reveal">
-      <h2 class="section-title">Experience</h2>
-      <div id="expList" class="stack"></div>
-    </section>
-
-    <!-- EDUCATION -->
-    <section id="education" class="section reveal">
-      <h2 class="section-title">Education</h2>
-      <div id="eduList" class="grid"></div>
-    </section>
-
-    <!-- AWARDS -->
-    <section id="awards" class="section">
-      <h2 class="section-title reveal">Awards & Certifications</h2>
-
-      <div class="badges-row">
-        <!-- Champion -->
-        <article class="badge-card reveal">
-          <div class="award-media">
-            <img src="worldskills-lyon-2024-champion-mechatronics.webp"
-              alt="WorldSkills Lyon 2024 — Champion (Mechatronics)" />
-          </div>
-          <h3>WorldSkills Lyon 2024 — Champion (Mechatronics)</h3>
-          <p class="muted small">
-            Award for demonstrated mastery across PLC programming, systems integration under competition conditions.
-          </p>
-          <div class="award-actions">
-            <a class="btn small" href="https://www.credly.com/badges/b285d0ba-bd45-45eb-914c-a7fb8fb866f1/public_url"
-              target="_blank" rel="noopener">View on Credly</a>
-          </div>
-        </article>
-
-        <!-- Best of Nation -->
-        <article class="badge-card reveal">
-          <div class="award-media">
-            <img src="best-of-nation.webp" alt="WorldSkills Lyon 2024 — Best of Nation" />
-          </div>
-          <h3>WorldSkills Lyon 2024 — Best of Nation</h3>
-          <p class="muted small">
-            Distinction given to the top-performing competitor representing Morocco at WorldSkills Lyon 2024.
-          </p>
-          <div class="award-actions">
-            <a class="btn small" href="https://www.credly.com/badges/912a75b2-9b20-4008-b6dd-ceef8ecf00c4/public_url"
-              target="_blank" rel="noopener">View on Credly</a>
-          </div>
-        </article>
-
-        <!-- Bronze Medal -->
-        <article class="badge-card reveal">
-          <div class="award-media">
-            <img src="bronze-medal.webp" alt="WorldSkills Lyon 2024 — Bronze Medal" />
-          </div>
-          <h3>WorldSkills Lyon 2024 — Bronze Medal (Mechatronics)</h3>
-          <p class="muted small">
-            Bronze medal for outstanding performance in mechatronics, combining mechanics, electronics, and automation.
-          </p>
-          <div class="award-actions">
-            <a class="btn small" href="https://www.flickr.com/photos/worldskills/collections/72157721575129232/"
-              target="_blank" rel="noopener">View Photos</a>
-          </div>
-        </article>
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <!-- CONTACT -->
-    <section id="contact" class="section reveal">
-      <h2 class="section-title">Contact</h2>
-      <div class="grid contact-grid">
+    <!-- ============ WORK ============ -->
+    <section class="sec" id="work">
+      <div class="wrap">
+        <header class="sec__head" data-rung>
+          <p class="sec__net"><span data-i18n="net">Network</span> 3</p>
+          <h2 data-i18n="work.title">Work from the plant floor</h2>
+          <div class="rung" aria-hidden="true">
+            <i class="rung__rail"></i><i class="rung__wire rung__wire--a"></i>
+            <span class="rung__contact"><em>"in_view"</em></span>
+            <i class="rung__wire rung__wire--b"></i>
+            <span class="rung__coil"><em>"work"</em></span>
+            <i class="rung__wire rung__wire--c"></i><i class="rung__rail"></i>
+          </div>
+        </header>
 
-        <!-- Email -->
-        <article class="card">
-          <div class="contact-item">
-            <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="1.6" />
-              <path d="M3 7l9 6 9-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-            <div>
-              <strong>Email</strong>
-              <div><a href="mailto:ayoubbnibourk728@gmail.com">ayoubbnibourk728@gmail.com</a></div>
+        <!-- Featured, interactive -->
+        <article class="feat card" data-reveal>
+          <div class="feat__text">
+            <p class="case__meta"><span class="tag">OCP Maintenance Solutions</span><span>Jorf Lasfar · 2025–2026</span></p>
+            <h3 data-i18n="feat.title">A control valve that switches from flow to level control by itself</h3>
+            <p data-i18n="feat.p1">On a phosphoric acid line, the valve held a flow setpoint. When the tank ran low, someone had to take it over by hand.</p>
+            <p data-i18n="feat.p2">I programmed the switch with two PID blocks: flow control in normal operation, level control as soon as the tank level gets too low.</p>
+            <p class="feat__try" data-i18n="feat.try">Try it: cut the feed and watch which controller holds the valve.</p>
+            <ul class="chips">
+              <li>PID</li><li>Yokogawa CENTUM VP</li><li>Emerson DeltaV</li><li>Siemens S7</li>
+            </ul>
+          </div>
+
+          <div class="feat__sim" id="tank">
+            <div class="sim__bar">
+              <span class="sim__mode" id="tankMode"><span class="led led--run" aria-hidden="true"></span><b id="tankModeTxt">FIC-101 · flow control</b></span>
+              <button class="hbtn hbtn--hot" type="button" id="tankBtn" aria-pressed="false">Cut feed</button>
             </div>
+            <svg class="pid-svg" viewBox="0 0 420 300" role="img" aria-labelledby="tankDesc">
+              <desc id="tankDesc" data-i18n="feat.aria">Tank with a level controller and a flow controller sharing one outlet valve.</desc>
+              <defs><clipPath id="tankClip"><rect x="41.5" y="61.5" width="107" height="157" rx="4" /></clipPath></defs>
+              <!-- pipes -->
+              <path class="p-pipe" d="M0 36H95V60" />
+              <path class="p-flow" id="tankFeedFlow" d="M0 36H95V60" />
+              <path class="p-pipe" d="M95 220V262H410" />
+              <path class="p-flow" id="tankOutFlow" d="M95 220V262H410" />
+              <path class="p-arrow" d="M402 256l9 6-9 6z" />
+              <text class="p-lbl" x="2" y="26" id="tankFeedLbl">FEED 60 m³/h</text>
+              <!-- tank -->
+              <g clip-path="url(#tankClip)"><rect class="p-liq" id="tankLiq" x="40" y="108" width="110" height="112" /></g>
+              <rect class="p-tank" x="40" y="60" width="110" height="160" rx="5" />
+              <path class="p-ll" d="M40 172H150" />
+              <text class="p-lbl p-lbl--ll" x="34" y="176" text-anchor="end">LL</text>
+              <text class="p-big" x="95" y="126" text-anchor="middle" id="tankLvl">70%</text>
+              <!-- instruments -->
+              <path class="p-line" d="M150 100H176" />
+              <g class="p-bub"><circle cx="192" cy="100" r="16" /><text x="192" y="98" text-anchor="middle">LT</text><text x="192" y="109" text-anchor="middle">101</text></g>
+              <path class="p-sig" d="M208 100H243" />
+              <g class="p-bub p-bub--c" id="tankLIC"><circle cx="262" cy="100" r="19" /><path d="M243 100H281" /><text x="262" y="96" text-anchor="middle">LIC</text><text x="262" y="112" text-anchor="middle">101</text></g>
+              <path class="p-line" d="M192 238V262" />
+              <g class="p-bub"><circle cx="192" cy="222" r="16" /><text x="192" y="220" text-anchor="middle">FT</text><text x="192" y="231" text-anchor="middle">101</text></g>
+              <path class="p-sig" d="M207 216L244 203" />
+              <g class="p-bub p-bub--c is-on" id="tankFIC"><circle cx="262" cy="196" r="19" /><path d="M243 196H281" /><text x="262" y="192" text-anchor="middle">FIC</text><text x="262" y="208" text-anchor="middle">101</text></g>
+              <!-- selector -->
+              <path class="p-sig" id="tankSigL" d="M281 100H340V133" />
+              <path class="p-sig is-on" id="tankSigF" d="M281 196H340V163" />
+              <rect class="p-sel" x="318" y="133" width="44" height="30" rx="3" />
+              <text class="p-seltxt" x="340" y="152" text-anchor="middle">SEL</text>
+              <path class="p-sig is-on" d="M362 148H385V235" />
+              <!-- valve -->
+              <path class="p-valve" d="M371 253V271L385 262ZM399 253V271L385 262Z" />
+              <path class="p-valve" d="M376 244A9 9 0 0 1 394 244ZM385 244V262" />
+              <text class="p-lbl" x="385" y="290" text-anchor="middle" id="tankVlv">FV-101 60%</text>
+            </svg>
+            <dl class="sim__vals">
+              <div><dt data-i18n="sim.level">Level</dt><dd><output id="tankL">70</output> %</dd></div>
+              <div><dt data-i18n="sim.flow">Outflow</dt><dd><output id="tankQ">60</output> m³/h</dd></div>
+              <div><dt data-i18n="sim.valve">Valve</dt><dd><output id="tankV">60</output> %</dd></div>
+            </dl>
+            <p class="sim__note" data-i18n="sim.note">Simplified simulation of the principle, running live in your browser.</p>
           </div>
         </article>
 
-        <!-- Phone (WhatsApp) -->
-        <article class="card">
-          <div class="contact-item">
-            <!-- Phone (WhatsApp) -->
-            <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <!-- Phone body -->
-              <rect x="5" y="2.5" width="14" height="19" rx="2.4" fill="none" stroke="currentColor"
-                stroke-width="1.6" />
-              <!-- Speaker notch -->
-              <path d="M10 5h4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-              <!-- Home line -->
-              <path d="M9 19h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-            </svg>
-            <div>
-              <strong>Phone (WhatsApp)</strong>
-              <div class="muted"><a href="https://wa.me/212674335326" class="phone-link" target="_blank"
-                  rel="noopener">+212 6 74 33 53 26</a></div>
+        <!-- Case grid -->
+        <ul class="cases">
+
+          <li class="card case" data-reveal data-spot>
+            <div class="case__fig" data-fig>
+              <svg viewBox="0 0 360 150" aria-hidden="true">
+                <text class="g-lbl" x="14" y="26">4 × LINE</text><text class="g-lbl" x="346" y="26" text-anchor="end">Δt = 2 h</text>
+                <path class="g-line" d="M72 82H104M164 82H196M256 82H288" />
+                <path class="g-march" d="M72 82H104M164 82H196M256 82H288" />
+                <g class="g-node"><rect x="12" y="56" width="60" height="52" rx="3" /><text x="42" y="80" text-anchor="middle">LAB</text><text class="g-sub" x="42" y="96" text-anchor="middle">Excel</text></g>
+                <g class="g-node"><rect x="104" y="56" width="60" height="52" rx="3" /><text x="134" y="80" text-anchor="middle">OPC</text><text class="g-sub" x="134" y="96" text-anchor="middle">server</text></g>
+                <g class="g-node g-node--hot"><rect x="196" y="56" width="60" height="52" rx="3" /><text x="226" y="80" text-anchor="middle">DCS</text><text class="g-sub" x="226" y="96" text-anchor="middle">synoptic</text></g>
+                <g class="g-node"><rect x="288" y="56" width="60" height="52" rx="3" /><text x="318" y="80" text-anchor="middle">PI</text><text class="g-sub" x="318" y="96" text-anchor="middle">historian</text></g>
+              </svg>
             </div>
-          </div>
-        </article>
+            <p class="case__meta"><span class="tag">OCP Maintenance Solutions</span><span>2025–2026</span></p>
+            <h3 data-i18n="c1.t">Lab results on the DCS screens of four lines</h3>
+            <p data-i18n="c1.d">I linked the lab stations of 4 lines to the DCS through Excel and an OPC server. Results entered every 2 hours are historized, shown on the synoptics next to the sensor data, and sent to AVEVA PI.</p>
+            <ul class="chips"><li>OPC</li><li>Excel</li><li>AVEVA PI</li><li>DCS</li></ul>
+          </li>
 
-        <!-- Location -->
-        <article class="card">
-          <div class="contact-item">
-            <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z" fill="none" stroke="currentColor"
-                stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
-              <circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="1.6" />
-            </svg>
-            <div>
-              <strong>Location</strong>
-              <div class="muted">El Jorf Lasfar · El Jadida · Morocco</div>
+          <li class="card case" data-reveal data-spot>
+            <div class="case__fig" data-fig id="figRfid">
+              <svg viewBox="0 0 360 150" aria-hidden="true">
+                <text class="g-lbl" x="14" y="26">8 STATIONS</text><text class="g-lbl" x="346" y="26" text-anchor="end">RFID</text>
+                <g class="g-st">
+                  <rect x="14" y="48" width="34" height="34" rx="3" /><rect x="56" y="48" width="34" height="34" rx="3" /><rect x="98" y="48" width="34" height="34" rx="3" /><rect x="140" y="48" width="34" height="34" rx="3" />
+                  <rect x="182" y="48" width="34" height="34" rx="3" /><rect x="224" y="48" width="34" height="34" rx="3" /><rect x="266" y="48" width="34" height="34" rx="3" /><rect x="308" y="48" width="34" height="34" rx="3" />
+                </g>
+                <g class="g-stn">
+                  <text x="31" y="70" text-anchor="middle">1</text><text x="73" y="70" text-anchor="middle">2</text><text x="115" y="70" text-anchor="middle">3</text><text x="157" y="70" text-anchor="middle">4</text>
+                  <text x="199" y="70" text-anchor="middle">5</text><text x="241" y="70" text-anchor="middle">6</text><text x="283" y="70" text-anchor="middle">7</text><text x="325" y="70" text-anchor="middle">8</text>
+                </g>
+                <rect class="g-read" x="14" y="104" width="328" height="30" rx="3" />
+                <text class="g-readtxt" x="178" y="124" text-anchor="middle" id="rfidTxt">TOOL 01 → PROGRAM 01</text>
+              </svg>
             </div>
-          </div>
-        </article>
+            <p class="case__meta"><span class="tag">SFC Solution</span><span>Tangier · 2026</span></p>
+            <h3 data-i18n="c2.t">Each tool recognized on an 8-station cutting machine</h3>
+            <p data-i18n="c2.d">I wrote the program that writes the RFID tags of the tools, so the machine recognizes each tool and selects the right program.</p>
+            <ul class="chips"><li>RFID</li><li>PLC</li><li>Emerson GE Fanuc</li></ul>
+          </li>
 
-        <!-- LinkedIn -->
-        <article class="card">
-          <div class="contact-item">
-            <!-- LinkedIn -->
-            <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <!-- Container -->
-              <rect x="3" y="3" width="18" height="18" rx="3" fill="none" stroke="currentColor" stroke-width="1.6" />
-              <!-- "i" -->
-              <circle cx="8" cy="9" r="1" fill="currentColor" />
-              <path d="M8 11v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-              <!-- "n" -->
-              <path d="M12 17v-4.2a2 2 0 0 1 2-2c1.1 0 2 .9 2 2V17" fill="none" stroke="currentColor" stroke-width="1.6"
-                stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-
-            <div>
-              <strong>LinkedIn</strong>
-              <div><a href="https://www.linkedin.com/in/ayoub-bni-bourk-136444172/" target="_blank"
-                  rel="noopener">linkedin.com</a></div>
+          <li class="card case" data-reveal data-spot>
+            <div class="case__fig" data-fig>
+              <svg viewBox="0 0 360 150" aria-hidden="true">
+                <text class="g-lbl" x="14" y="26">ENC</text>
+                <path class="g-enc" d="M14 62h24v-22h24v22h24v-22h24v22h24v-22h24v22h24v-22h24v22h24v-22h24v22h24v-22h24v22h20" />
+                <path class="g-guide" d="M38 40V112M134 40V112M230 40V112M326 40V112" />
+                <text class="g-lbl" x="14" y="92">PRINT</text>
+                <g class="g-marks"><rect x="36" y="100" width="18" height="12" /><rect x="132" y="100" width="18" height="12" /><rect x="228" y="100" width="18" height="12" /><rect x="324" y="100" width="18" height="12" /></g>
+                <text class="g-bad" x="346" y="140" text-anchor="end">OFFSET</text>
+                <text class="g-ok" x="346" y="140" text-anchor="end">SYNC OK</text>
+                <text class="g-lbl" x="14" y="140">8 × SERVO</text>
+              </svg>
             </div>
-          </div>
-        </article>
+            <p class="case__meta"><span class="tag">SFC Solution</span><span>Tangier · 2026</span></p>
+            <h3 data-i18n="c3.t">Keeping the printers in step with the cut</h3>
+            <p data-i18n="c3.d">Troubleshooting of a synchronization fault between a cutting machine (Emerson GE Fanuc PLC, Trio Motion controller, 8 servo drives) and the Keyence printers that follow it by encoder.</p>
+            <ul class="chips"><li>Trio Motion</li><li>Servo drives</li><li>Keyence</li><li>Encoder</li></ul>
+          </li>
 
-        <!-- GitHub -->
-        <article class="card">
-          <div class="contact-item">
-            <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M7 8l-4 4 4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
-                stroke-linejoin="round" />
-              <path d="M11 16h6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-              <rect x="3" y="4" width="18" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="1.6" />
-            </svg>
-            <div>
-              <strong>GitHub</strong>
-              <div><a href="https://github.com/Bni-bourk" target="_blank" rel="noopener">github.com</a></div>
+          <li class="card case" data-reveal data-spot>
+            <div class="case__fig" data-fig>
+              <svg viewBox="0 0 360 150" aria-hidden="true">
+                <text class="g-lbl" x="14" y="26">kWh</text><text class="g-amber" x="346" y="26" text-anchor="end">IN PROGRESS</text>
+                <path class="g-axis" d="M14 126H346M14 100H346M14 74H346M14 48H346" />
+                <g class="g-bars">
+                  <rect x="24" y="76" width="18" height="50" /><rect x="52" y="62" width="18" height="64" /><rect x="80" y="84" width="18" height="42" /><rect x="108" y="54" width="18" height="72" />
+                  <rect x="136" y="68" width="18" height="58" /><rect x="164" y="90" width="18" height="36" /><rect x="192" y="58" width="18" height="68" /><rect x="220" y="72" width="18" height="54" />
+                  <rect x="248" y="50" width="18" height="76" /><rect x="276" y="80" width="18" height="46" /><rect x="304" y="64" width="18" height="62" />
+                </g>
+                <path class="g-total" d="M33 96 61 84 89 92 117 74 145 80 173 88 201 70 229 76 257 60 285 72 313 62" />
+              </svg>
             </div>
-          </div>
-        </article>
+            <p class="case__meta"><span class="tag">SFC Solution</span><span data-i18n="c4.when">Tangier · ongoing</span></p>
+            <h3 data-i18n="c4.t">Energy monitoring for a whole factory</h3>
+            <p data-i18n="c4.d">A WinCC Professional SCADA that reads the energy meters and shows the consumption of the whole factory. In development now.</p>
+            <ul class="chips"><li>WinCC Professional</li><li>SCADA</li><li>Energy meters</li></ul>
+          </li>
 
-        <!-- Credly -->
-        <article class="card">
-          <div class="contact-item">
-            <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="8.5" r="4.5" fill="none" stroke="currentColor" stroke-width="1.6" />
-              <path d="M9 13l-2 7 5-3 5 3-2-7" fill="none" stroke="currentColor" stroke-width="1.6"
-                stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-            <div>
-              <strong>Credly</strong>
-              <div><a href="https://www.credly.com/users/ayoub-bni-bourk/badges#credly" target="_blank"
-                  rel="noopener">Ayoub Bni-Bourk</a></div>
+          <li class="card case" data-reveal data-spot>
+            <div class="case__fig" data-fig>
+              <svg viewBox="0 0 360 150" aria-hidden="true">
+                <g class="g-sheet"><rect x="14" y="22" width="120" height="110" rx="3" /><path d="M14 44H134M14 66H134M14 88H134M14 110H134M54 22V132M94 22V132" /></g>
+                <rect class="g-scan" x="14" y="44" width="120" height="22" />
+                <path class="g-line" d="M146 77H190" /><path class="g-arrow" d="M186 71l10 6-10 6z" />
+                <text class="g-lbl" x="170" y="66" text-anchor="middle">VBA</text>
+                <rect class="g-paper" x="206" y="22" width="140" height="110" rx="3" />
+                <g class="g-draw"><circle cx="236" cy="56" r="11" /><circle cx="316" cy="56" r="11" /><path d="M247 56H305M236 67V104H316V67" /><rect x="264" y="94" width="24" height="20" /></g>
+                <path class="g-title" d="M286 118H340V126H286Z" />
+              </svg>
             </div>
-          </div>
-        </article>
+            <p class="case__meta"><span class="tag">Actemium · VINCI Energies</span><span>Casablanca · 2025</span></p>
+            <h3 data-i18n="c5.t">Loop diagrams and cable schedules generated automatically</h3>
+            <p data-i18n="c5.d">An Excel/VBA tool for the design office. It generates the loop diagrams and the cable schedules automatically.</p>
+            <ul class="chips"><li>Excel</li><li>VBA</li><li>Instrumentation</li></ul>
+          </li>
 
+          <li class="card case" data-reveal data-spot>
+            <div class="case__fig case__fig--photo">
+              <img src="assets/img/caf2-line-1000.webp" width="1000" height="687" loading="lazy" decoding="async"
+                alt="Process skid of the production line commissioned with SSE MENA" data-i18n-attr="alt:c6.alt">
+            </div>
+            <p class="case__meta"><span class="tag">SSE MENA</span><span>Jorf Lasfar · 2024–2025</span></p>
+            <h3 data-i18n="c6.t">S7-1500 and S7-1200 commissioning on a production line</h3>
+            <p data-i18n="c6.d">Programming and commissioning of Siemens S7-1500/1200 PLCs with ET200 modules on a CaF₂ production line, from hardware configuration to field testing.</p>
+            <ul class="chips"><li>S7-1500</li><li>ET200</li><li>TIA Portal</li><li>Profinet</li></ul>
+          </li>
+        </ul>
+
+        <!-- Software -->
+        <div class="soft" data-reveal>
+          <h3 class="soft__title" data-i18n="soft.title">Software I wrote on the side</h3>
+          <ul class="soft__list">
+            <li>
+              <a href="https://github.com/Bni-bourk/S7CommPlus-Project" target="_blank" rel="noopener">
+                <span class="soft__name">S7CommPlus driver</span>
+                <span class="soft__desc" data-i18n="soft.1">Terminal tool for S7-1200/1500: TLS communication and symbolic access to optimized data blocks.</span>
+                <span class="soft__tech">C# · .NET 8</span>
+                <span class="soft__go">GitHub <svg class="ico" aria-hidden="true"><use href="#i-ext" /></svg></span>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/Bni-bourk/pdf-comment-extractor" target="_blank" rel="noopener">
+                <span class="soft__name">PDF comment extractor</span>
+                <span class="soft__desc" data-i18n="soft.2">Desktop app that extracts the annotations of long PDFs (400+ pages) into a structured Excel sheet. Hours of manual work done in minutes.</span>
+                <span class="soft__tech">Python · PyMuPDF</span>
+                <span class="soft__go">GitHub <svg class="ico" aria-hidden="true"><use href="#i-ext" /></svg></span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/posts/ayoub-bni-bourk-136444172_automation-plc-snap7-activity-7294050885763039232-riA5" target="_blank" rel="noopener">
+                <span class="soft__name">Web PLC control</span>
+                <span class="soft__desc" data-i18n="soft.3">Web page that monitors and controls a Siemens S7 PLC through Snap7 and Flask.</span>
+                <span class="soft__tech">Python · Snap7 · Flask</span>
+                <span class="soft__go">LinkedIn <svg class="ico" aria-hidden="true"><use href="#i-ext" /></svg></span>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
-      <section class="section reveal bottom-cta">
-        <a class="btn-shine"
-          href="https://script.google.com/macros/s/AKfycbwLgLW7gB7gdtmEnRhcrh9pupmcNH2-lowdPL0bWSpJl7Fq71GJiL6lwBsBsDbLvSXFxg/exec"
-          target="_blank">Work With Me</a>
-        <a class="btn-shine" href="#projects">View Projects</a>
-      </section>
+    </section>
 
+    <!-- ============ EXPERIENCE (drawn as an SFC) ============ -->
+    <section class="sec sec--alt" id="experience">
+      <div class="wrap">
+        <header class="sec__head" data-rung>
+          <p class="sec__net"><span data-i18n="net">Network</span> 4</p>
+          <h2 data-i18n="exp.title">Experience</h2>
+          <div class="rung" aria-hidden="true">
+            <i class="rung__rail"></i><i class="rung__wire rung__wire--a"></i>
+            <span class="rung__contact"><em>"in_view"</em></span>
+            <i class="rung__wire rung__wire--b"></i>
+            <span class="rung__coil"><em>"experience"</em></span>
+            <i class="rung__wire rung__wire--c"></i><i class="rung__rail"></i>
+          </div>
+        </header>
+
+        <ol class="sfc" reversed>
+          <li class="sfc__step is-active is-open" data-reveal>
+            <div class="sfc__rail" aria-hidden="true"><span class="sfc__box">S5</span><span class="sfc__link"></span></div>
+            <article class="sfc__body">
+              <header class="sfc__head">
+                <div><h3 data-i18n="e5.role">Automation Specialist</h3><p class="sfc__org">SFC Solution · <span data-i18n="loc.tangier">Tangier</span></p></div>
+                <p class="sfc__when"><span class="led led--run" aria-hidden="true"></span><span data-i18n="e5.when">Sep 2026 – Present</span></p>
+              </header>
+              <ul>
+                <li data-i18n="e5.b1"><b>Maintenance and troubleshooting:</b> communication faults PLC/HMI (Unitronics) and PLC/drive (Mitsubishi), faulty PLC inputs, synchronization fault between the cutting machine (Emerson GE Fanuc, Trio Motion, 8 servo drives) and the Keyence printers synchronized by encoder.</li>
+                <li data-i18n="e5.b2"><b>Program development:</b> RFID tag writing on an 8-station cutting machine, so each tool is recognized and the right program is selected; oil temperature control on an evaporator (PID Compact).</li>
+                <li data-i18n="e5.b3"><b>Ongoing project:</b> WinCC Professional SCADA to monitor the energy consumption of the whole factory from energy meters.</li>
+              </ul>
+            </article>
+          </li>
+
+          <li class="sfc__step" data-reveal>
+            <div class="sfc__rail" aria-hidden="true"><span class="sfc__box">S4</span><span class="sfc__link"></span></div>
+            <article class="sfc__body">
+              <header class="sfc__head">
+                <div><h3 data-i18n="e4.role">Automation Technician</h3><p class="sfc__org">OCP Maintenance Solutions · El Jorf Lasfar, El Jadida</p></div>
+                <p class="sfc__when" data-i18n="e4.when">Aug 2025 – Aug 2026</p>
+              </header>
+              <button class="sfc__more" type="button" aria-expanded="false"><span data-i18n="exp.more">Details</span></button>
+              <ul>
+                <li data-i18n="e4.b1">Fault diagnosis and troubleshooting on phosphoric acid lines (Siemens S7, Yokogawa CENTUM VP, Emerson DeltaV).</li>
+                <li data-i18n="e4.b2">Project linking the lab stations of 4 lines to the DCS (Excel + OPC server): lab results entered every 2 hours are historized, shown on DCS synoptics next to sensor data, and sent to AVEVA PI.</li>
+                <li data-i18n="e4.b3">Programs to automate manual tasks, e.g. switching a control valve from flow to level control (two PID blocks) when a tank runs low.</li>
+              </ul>
+            </article>
+          </li>
+
+          <li class="sfc__step" data-reveal>
+            <div class="sfc__rail" aria-hidden="true"><span class="sfc__box">S3</span><span class="sfc__link"></span></div>
+            <article class="sfc__body">
+              <header class="sfc__head">
+                <div><h3 data-i18n="e3.role">Design Technician</h3><p class="sfc__org">Actemium (VINCI Energies) · Casablanca</p></div>
+                <p class="sfc__when" data-i18n="e3.when">Jun 2025 – Jul 2025</p>
+              </header>
+              <button class="sfc__more" type="button" aria-expanded="false"><span data-i18n="exp.more">Details</span></button>
+              <ul>
+                <li data-i18n="e3.b1">Developed an Excel/VBA tool that generates loop diagrams and cable schedules automatically.</li>
+              </ul>
+            </article>
+          </li>
+
+          <li class="sfc__step" data-reveal>
+            <div class="sfc__rail" aria-hidden="true"><span class="sfc__box">S2</span><span class="sfc__link"></span></div>
+            <article class="sfc__body">
+              <header class="sfc__head">
+                <div><h3 data-i18n="e2.role">Automation Technician</h3><p class="sfc__org">SSE MENA · El Jorf Lasfar, El Jadida</p></div>
+                <p class="sfc__when" data-i18n="e2.when">Nov 2024 – May 2025</p>
+              </header>
+              <button class="sfc__more" type="button" aria-expanded="false"><span data-i18n="exp.more">Details</span></button>
+              <ul>
+                <li data-i18n="e2.b1">Programming and commissioning of Siemens S7-1500/1200 PLCs with ET200 modules, from hardware configuration to field testing.</li>
+              </ul>
+            </article>
+          </li>
+
+          <li class="sfc__step sfc__step--init" data-reveal>
+            <div class="sfc__rail" aria-hidden="true"><span class="sfc__box">S1</span></div>
+            <article class="sfc__body">
+              <header class="sfc__head">
+                <div><h3 data-i18n="e1.role">Mechatronics Competitor</h3><p class="sfc__org"><span data-i18n="e1.org">WorldSkills Morocco Team</span> · Casablanca / Lyon</p></div>
+                <p class="sfc__when" data-i18n="e1.when">Nov 2023 – Sep 2024</p>
+              </header>
+              <button class="sfc__more" type="button" aria-expanded="false"><span data-i18n="exp.more">Details</span></button>
+              <ul>
+                <li data-i18n="e1.b1">Won the national championship, then trained full time for WorldSkills Lyon 2024 (assembly, programming and troubleshooting of mechatronic systems).</li>
+                <li data-i18n="e1.b2">Won the “Best of Nation” medal at WorldSkills Lyon 2024.</li>
+              </ul>
+            </article>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS (drawn as an I/O rack) ============ -->
+    <section class="sec" id="skills">
+      <div class="wrap">
+        <header class="sec__head" data-rung>
+          <p class="sec__net"><span data-i18n="net">Network</span> 5</p>
+          <h2 data-i18n="sk.title">Platforms and tools I work with</h2>
+          <div class="rung" aria-hidden="true">
+            <i class="rung__rail"></i><i class="rung__wire rung__wire--a"></i>
+            <span class="rung__contact"><em>"in_view"</em></span>
+            <i class="rung__wire rung__wire--b"></i>
+            <span class="rung__coil"><em>"skills"</em></span>
+            <i class="rung__wire rung__wire--c"></i><i class="rung__rail"></i>
+          </div>
+        </header>
+
+        <ul class="rack">
+          <li class="mod mod--w2" data-reveal>
+            <header><span class="mod__slot">SLOT 1</span><span class="led led--run" aria-hidden="true"></span></header>
+            <h3 data-i18n="sk.1">PLC</h3>
+            <ul class="chips chips--lg"><li>Siemens S7-1500 / 1200</li><li>TIA Portal</li><li>Emerson (GE Fanuc)</li><li>Mitsubishi</li><li>Unitronics</li><li>Schneider</li><li>Delta</li><li>Opto 22</li></ul>
+          </li>
+          <li class="mod" data-reveal>
+            <header><span class="mod__slot">SLOT 2</span><span class="led led--run" aria-hidden="true"></span></header>
+            <h3>DCS / SCADA</h3>
+            <ul class="chips chips--lg"><li>Yokogawa CENTUM VP</li><li>Emerson DeltaV</li><li>WinCC Professional</li><li>AVEVA PI</li></ul>
+          </li>
+          <li class="mod" data-reveal>
+            <header><span class="mod__slot">SLOT 3</span><span class="led led--run" aria-hidden="true"></span></header>
+            <h3 data-i18n="sk.3">Motion control and robotics</h3>
+            <ul class="chips chips--lg"><li>Trio Motion</li><li data-i18n="sk.3a">Servo drives, several brands</li><li data-i18n="sk.3b">Mitsubishi robots</li><li data-i18n="sk.3c">Fanuc robots</li></ul>
+          </li>
+          <li class="mod" data-reveal>
+            <header><span class="mod__slot">SLOT 4</span><span class="led led--run" aria-hidden="true"></span></header>
+            <h3>Vision</h3>
+            <ul class="chips chips--lg"><li data-i18n="sk.4a">Keyence vision systems</li><li data-i18n="sk.4b">Keyence printers</li></ul>
+          </li>
+          <li class="mod" data-reveal>
+            <header><span class="mod__slot">SLOT 5</span><span class="led led--run" aria-hidden="true"></span></header>
+            <h3 data-i18n="sk.5">Industrial networks</h3>
+            <ul class="chips chips--lg"><li>Profinet</li><li>Profibus</li><li>Modbus TCP</li><li>IO-Link</li><li>OPC</li></ul>
+          </li>
+          <li class="mod mod--w2" data-reveal>
+            <header><span class="mod__slot">SLOT 6</span><span class="led led--run" aria-hidden="true"></span></header>
+            <h3 data-i18n="sk.6">Instrumentation and electrical</h3>
+            <ul class="chips chips--lg"><li data-i18n="sk.6a">Instrument calibration</li><li data-i18n="sk.6b">VFDs: Siemens, ABB, Schneider, Yaskawa</li><li data-i18n="sk.6c">Power distribution</li><li data-i18n="sk.6d">Motor control</li></ul>
+          </li>
+          <li class="mod" data-reveal>
+            <header><span class="mod__slot">SLOT 7</span><span class="led led--run" aria-hidden="true"></span></header>
+            <h3 data-i18n="sk.7">Programming and tools</h3>
+            <ul class="chips chips--lg"><li>Python (Snap7)</li><li>VBA</li><li>VBScript</li><li>HTML / CSS / JS</li><li>AutoCAD Electrical</li><li>Navisworks</li></ul>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ WORLDSKILLS ============ -->
+    <section class="sec sec--alt" id="worldskills">
+      <div class="wrap">
+        <header class="sec__head" data-rung>
+          <p class="sec__net"><span data-i18n="net">Network</span> 6</p>
+          <h2 data-i18n="ws.title">WorldSkills Lyon 2024: Best of Nation</h2>
+          <div class="rung" aria-hidden="true">
+            <i class="rung__rail"></i><i class="rung__wire rung__wire--a"></i>
+            <span class="rung__contact"><em>"in_view"</em></span>
+            <i class="rung__wire rung__wire--b"></i>
+            <span class="rung__coil"><em>"worldskills"</em></span>
+            <i class="rung__wire rung__wire--c"></i><i class="rung__rail"></i>
+          </div>
+        </header>
+
+        <div class="ws">
+          <figure class="ws__photo" data-reveal>
+            <img src="assets/img/worldskills-lyon-2024-900.webp"
+              srcset="assets/img/worldskills-lyon-2024-900.webp 900w, assets/img/worldskills-lyon-2024-1600.webp 1600w"
+              sizes="(min-width: 900px) 620px, 100vw" width="1600" height="1066" loading="lazy" decoding="async"
+              alt="Ayoub Bni-Bourk competing in Mechatronics at WorldSkills Lyon 2024" data-i18n-attr="alt:ws.alt">
+            <figcaption><span class="tag">Lyon · 09 / 2024</span><span data-i18n="ws.cap">On the competition floor, Mechatronics.</span></figcaption>
+          </figure>
+
+          <div class="ws__text" data-reveal>
+            <p class="lede" data-i18n="ws.p1">I won the Moroccan national championship in Mechatronics, then trained full time with the national team for the world competition.</p>
+            <p data-i18n="ws.p2">Mechatronics at WorldSkills means assembling, programming and troubleshooting complete mechatronic systems against the clock. In Lyon I received the “Best of Nation” medal, given to the best competitor of each national team.</p>
+
+            <ul class="badges">
+              <li>
+                <a href="https://www.credly.com/badges/912a75b2-9b20-4008-b6dd-ceef8ecf00c4/public_url" target="_blank" rel="noopener">
+                  <img src="assets/img/badge-best-of-nation.webp" width="360" height="360" loading="lazy" decoding="async" alt="">
+                  <span><b>Best of Nation</b><small><span data-i18n="ws.verify">Verify on Credly</span> <svg class="ico" aria-hidden="true"><use href="#i-ext" /></svg></small></span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.credly.com/badges/b285d0ba-bd45-45eb-914c-a7fb8fb866f1/public_url" target="_blank" rel="noopener">
+                  <img src="assets/img/badge-worldskills-champion.webp" width="360" height="360" loading="lazy" decoding="async" alt="">
+                  <span><b data-i18n="ws.b2">Competitor, Mechatronics</b><small><span data-i18n="ws.verify">Verify on Credly</span> <svg class="ico" aria-hidden="true"><use href="#i-ext" /></svg></small></span>
+                </a>
+              </li>
+            </ul>
+
+            <p class="ws__links">
+              <span data-i18n="ws.watch">Watch the competition:</span>
+              <a href="https://youtu.be/rAwejiLvqVQ" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-play" /></svg>1</a>
+              <a href="https://youtu.be/QEyETVjBkPQ" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-play" /></svg>2</a>
+              <a href="https://youtu.be/BAS_DPA2F_s" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-play" /></svg>3</a>
+              <a href="https://youtu.be/8Y287OCT2tw" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-play" /></svg>4</a>
+              <a href="https://www.flickr.com/photos/worldskills/collections/72157721575129232/" target="_blank" rel="noopener" data-i18n="ws.photos">Photos</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EDUCATION ============ -->
+    <section class="sec" id="education">
+      <div class="wrap">
+        <header class="sec__head" data-rung>
+          <p class="sec__net"><span data-i18n="net">Network</span> 7</p>
+          <h2 data-i18n="edu.title">Education</h2>
+          <div class="rung" aria-hidden="true">
+            <i class="rung__rail"></i><i class="rung__wire rung__wire--a"></i>
+            <span class="rung__contact"><em>"in_view"</em></span>
+            <i class="rung__wire rung__wire--b"></i>
+            <span class="rung__coil"><em>"education"</em></span>
+            <i class="rung__wire rung__wire--c"></i><i class="rung__rail"></i>
+          </div>
+        </header>
+
+        <ul class="edu" data-reveal>
+          <li><span class="edu__y" data-i18n="ed1.y">2026 – now</span><div><b data-i18n="ed1.t">Specialized Master's Degree (MUS)</b><span data-i18n="ed1.d">Electromechanical Engineering of Industrial Systems (GESI)</span></div><span class="edu__w" data-i18n="ed1.w">ENSA Kenitra, Ibn Tofail University</span></li>
+          <li><span class="edu__y">2025 – 2026</span><div><b data-i18n="ed2.t">Professional Bachelor's Degree</b><span data-i18n="ed2.d">Industrial Automation and Electrical Systems</span></div><span class="edu__w">ENSAM</span></li>
+          <li><span class="edu__y">2024</span><div><b data-i18n="ed3.t">Intensive Training</b><span data-i18n="ed3.d">Mechatronics</span></div><span class="edu__w">CDCGE Casablanca</span></li>
+          <li><span class="edu__y">2021 – 2023</span><div><b data-i18n="ed4.t">Specialized Technician Diploma</b><span data-i18n="ed4.d">Automation and Industrial Instrumentation</span></div><span class="edu__w">OFPPT Agadir</span></li>
+          <li><span class="edu__y">2019 – 2021</span><div><b data-i18n="ed5.t">Technician Diploma</b><span data-i18n="ed5.d">Industrial Electrical Maintenance</span></div><span class="edu__w">OFPPT Agadir</span></li>
+          <li><span class="edu__y">2018</span><div><b data-i18n="ed6.t">Baccalaureate</b><span data-i18n="ed6.d">Life and Earth Sciences</span></div><span class="edu__w">Lycée Alkods, Aït Milk</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="sec sec--contact" id="contact">
+      <div class="wrap">
+        <header class="sec__head" data-rung>
+          <p class="sec__net"><span data-i18n="net">Network</span> 8</p>
+          <h2 data-i18n="ct.title">Tell me about the machine, the fault or the role</h2>
+          <div class="rung" aria-hidden="true">
+            <i class="rung__rail"></i><i class="rung__wire rung__wire--a"></i>
+            <span class="rung__contact"><em>"in_view"</em></span>
+            <i class="rung__wire rung__wire--b"></i>
+            <span class="rung__coil"><em>"contact"</em></span>
+            <i class="rung__wire rung__wire--c"></i><i class="rung__rail"></i>
+          </div>
+        </header>
+
+        <div class="contact">
+          <form class="brief card" id="brief" data-reveal novalidate>
+            <fieldset>
+              <legend data-i18n="ct.need">What do you need?</legend>
+              <div class="picks" id="briefPicks">
+                <label><input type="checkbox" id="pk1" name="need" value="PLC programming / commissioning"><span data-i18n="ct.n1">PLC programming</span></label>
+                <label><input type="checkbox" id="pk2" name="need" value="Troubleshooting"><span data-i18n="ct.n2">Troubleshooting</span></label>
+                <label><input type="checkbox" id="pk3" name="need" value="SCADA / HMI / DCS"><span>SCADA / HMI / DCS</span></label>
+                <label><input type="checkbox" id="pk4" name="need" value="Motion control / vision"><span data-i18n="ct.n4">Motion / vision</span></label>
+                <label><input type="checkbox" id="pk5" name="need" value="Data link / custom tool"><span data-i18n="ct.n5">Data / custom tool</span></label>
+                <label><input type="checkbox" id="pk6" name="need" value="Job offer"><span data-i18n="ct.n6">Job offer</span></label>
+              </div>
+            </fieldset>
+            <div class="brief__row">
+              <label class="field" for="bName"><span data-i18n="ct.name">Your name</span>
+                <input id="bName" name="name" type="text" autocomplete="name"></label>
+              <label class="field" for="bCo"><span data-i18n="ct.co">Company (optional)</span>
+                <input id="bCo" name="company" type="text" autocomplete="organization"></label>
+            </div>
+            <label class="field" for="bMsg"><span data-i18n="ct.msg">The machine, the PLC or the problem, in a few lines</span>
+              <textarea id="bMsg" name="message" rows="5"
+                placeholder="Example: S7-1500 line, the HMI loses communication with the PLC about twice per shift."
+                data-i18n-attr="placeholder:ct.ph"></textarea></label>
+            <div class="brief__send">
+              <a class="btn" id="sendWa" href="https://wa.me/212674335326" target="_blank" rel="noopener">
+                <svg class="ico" aria-hidden="true"><use href="#i-chat" /></svg><span data-i18n="ct.wa">Send on WhatsApp</span></a>
+              <a class="btn btn--ghost" id="sendMail" href="mailto:ayoubbnibourk728@gmail.com">
+                <svg class="ico" aria-hidden="true"><use href="#i-mail" /></svg><span data-i18n="ct.mail">Send by email</span></a>
+            </div>
+            <p class="brief__note" data-i18n="ct.note">Nothing is stored on this site. The buttons open WhatsApp or your email app with your message ready to send.</p>
+          </form>
+
+          <div class="direct" data-reveal>
+            <ul class="direct__list">
+              <li>
+                <a href="https://wa.me/212674335326" target="_blank" rel="noopener">
+                  <svg class="ico" aria-hidden="true"><use href="#i-chat" /></svg>
+                  <span><small data-i18n="ct.d1">Phone and WhatsApp</small><b>+212 674-335326</b></span>
+                </a>
+              </li>
+              <li class="direct__mail">
+                <a href="mailto:ayoubbnibourk728@gmail.com">
+                  <svg class="ico" aria-hidden="true"><use href="#i-mail" /></svg>
+                  <span><small>Email</small><b id="mailTxt">ayoubbnibourk728@gmail.com</b></span>
+                </a>
+                <button class="iconbtn" type="button" id="copyMail" aria-label="Copy email address" data-i18n-attr="aria-label:ct.copy">
+                  <svg class="ico" aria-hidden="true"><use href="#i-copy" /></svg></button>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/ayoub-bni-bourk-136444172/" target="_blank" rel="noopener">
+                  <svg class="ico" aria-hidden="true"><use href="#i-in" /></svg>
+                  <span><small>LinkedIn</small><b>ayoub-bni-bourk</b></span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/Bni-bourk" target="_blank" rel="noopener">
+                  <svg class="ico" aria-hidden="true"><use href="#i-code" /></svg>
+                  <span><small>GitHub</small><b>Bni-bourk</b></span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.credly.com/users/ayoub-bni-bourk/" target="_blank" rel="noopener">
+                  <svg class="ico" aria-hidden="true"><use href="#i-award" /></svg>
+                  <span><small>Credly</small><b data-i18n="ct.d5">Verified WorldSkills badges</b></span>
+                </a>
+              </li>
+            </ul>
+
+            <div class="direct__cv">
+              <p data-i18n="ct.cv">Download my CV</p>
+              <a class="btn btn--ghost btn--sm" href="CV-Ayoub-Bni-Bourk-EN.pdf" download><svg class="ico" aria-hidden="true"><use href="#i-down" /></svg>English</a>
+              <a class="btn btn--ghost btn--sm" href="CV-Ayoub-Bni-Bourk-FR.pdf" download><svg class="ico" aria-hidden="true"><use href="#i-down" /></svg>Français</a>
+            </div>
+
+            <p class="direct__where"><svg class="ico" aria-hidden="true"><use href="#i-pin" /></svg>
+              <span data-i18n="ct.where">Based in Tangier. On-site work in Morocco, remote support elsewhere.</span></p>
+            <p class="direct__form"><a href="https://script.google.com/macros/s/AKfycbwLgLW7gB7gdtmEnRhcrh9pupmcNH2-lowdPL0bWSpJl7Fq71GJiL6lwBsBsDbLvSXFxg/exec" target="_blank" rel="noopener"><span data-i18n="ct.form">Or fill in the detailed request form</span> <svg class="ico" aria-hidden="true"><use href="#i-ext" /></svg></a></p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer class="site-footer">© <span id="year"></span> Ayoub Bni-Bourk. All rights reserved.</footer>
+  <footer class="foot">
+    <div class="wrap foot__in">
+      <p>© <span id="year">2026</span> Ayoub Bni-Bourk</p>
+      <p class="foot__cpu" aria-hidden="true"><span class="led led--run"></span>CPU RUN · <span data-i18n="foot.cycle">cycle</span> <span id="cycle">16.7</span> ms</p>
+      <a href="#top" data-i18n="foot.top">Back to top</a>
+    </div>
+  </footer>
 
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/js/fr.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 
 </html>
-
-
-
-
-
-
-
-
