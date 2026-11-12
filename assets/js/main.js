@@ -28,16 +28,18 @@
     en: {
       'meta.title': document.title,
       'meta.desc': ($('meta[name="description"]') || {}).content || '',
-      'tank.flow': 'FIC-101 · flow control', 'tank.level': 'LIC-101 · level control',
-      'tank.cut': 'Cut feed', 'tank.restore': 'Restore feed', 'tank.feed': 'FEED',
+      'tank.flow': 'Scrubber valve: flow control', 'tank.level': 'Scrubber valve: follows tank 07 level',
+      'tank.more': 'Increase demand', 'tank.normal': 'Normal demand',
+      'tank.scrubber': 'SCRUBBER', 'tank.name': 'TANK 07', 'tank.pumps': 'PUMPS',
       'rfid.tool': 'TOOL', 'rfid.prog': 'PROGRAM',
       'toast.copied': 'Email address copied',
       'msg.hello': 'Hello Ayoub,', 'msg.need': 'Need', 'msg.name': 'Name', 'msg.co': 'Company',
       'msg.subject': 'Request from your website'
     },
     fr: {
-      'tank.flow': 'FIC-101 · régulation débit', 'tank.level': 'LIC-101 · régulation niveau',
-      'tank.cut': "Couper l'alimentation", 'tank.restore': "Rétablir l'alimentation", 'tank.feed': 'ALIM.',
+      'tank.flow': 'Vanne laveur : régulation débit', 'tank.level': 'Vanne laveur : suit le niveau du bac 07',
+      'tank.more': 'Augmenter la consommation', 'tank.normal': 'Consommation normale',
+      'tank.scrubber': 'LAVEUR', 'tank.name': 'BAC 07', 'tank.pumps': 'POMPES',
       'rfid.tool': 'OUTIL', 'rfid.prog': 'PROGRAMME',
       'toast.copied': 'Adresse e-mail copiée',
       'msg.hello': 'Bonjour Ayoub,', 'msg.need': 'Besoin', 'msg.name': 'Nom', 'msg.co': 'Société',
@@ -495,66 +497,74 @@
   })();
 
   /* ======================================================================
-     Tank demo: flow control with level override
+     Tank 07 demo. The fill valve holds the tank level. The scrubber water valve
+     is on flow control, and follows the tank level when the fill valve is at
+     100 % and the level still drops.
      ====================================================================== */
   (function () {
     var box = $('#tank'); if (!box) return;
     var el = {
-      liq: $('#tankLiq'), lvl: $('#tankLvl'), feed: $('#tankFeedLbl'), vlv: $('#tankVlv'),
-      fic: $('#tankFIC'), lic: $('#tankLIC'), sigF: $('#tankSigF'), sigL: $('#tankSigL'),
-      feedFlow: $('#tankFeedFlow'), outFlow: $('#tankOutFlow'),
+      liq: $('#tankLiq'), lvl: $('#tankLvl'), fic: $('#tankFIC'), lic: $('#tankLIC'), sigF: $('#tankSigF'), sigL: $('#tankSigL'),
+      inFlow: $('#tankInFlow'), drain: $('#tankDrainFlow'), fill: $('#tankFillFlow'), out: $('#tankOutFlow'),
       mode: $('#tankMode'), modeTxt: $('#tankModeTxt'), led: $('#tankMode .led'), btn: $('#tankBtn'),
-      L: $('#tankL'), Q: $('#tankQ'), V: $('#tankV')
+      L: $('#tankL'), V: $('#tankV'), Q: $('#tankQ'),
+      scr: $('#tankScrLbl'), name: $('#tankName'), demand: $('#tankDemand'), qs: $('#tankQs'), lv: $('#tankLv'), fv: $('#tankFv')
     };
-    var s = { L: 70, valve: 60, Q: 60, R: 60, qin: 60, feedLow: false, active: 'F' };
-    var shown = 'F', pend = 0, offIn = 0, offOut = 0, visible = false, raf = 0, last = 0, acc = 0;
-    var user = false, demoT = 0, roT = 0;
+    var LSP = 60, FSP = 20, K = 0.6;   // level setpoint %, scrubber flow setpoint m3/h, m3/h per % of valve
+    var s = { L: 60, lv: 50, fv: 33.3, qs: 20, qf: 30, qd: 50, iL: 50, iF: 33.3, i2: 0, mode: 'F', high: false };
+    var off = { a: 0, b: 0, c: 0 }, visible = false, raf = 0, last = 0, acc = 0, user = false, demoT = 0, roT = 0, shown = '';
 
     function step(dt) {
-      var feedT = s.feedLow ? 34 : 60 + 14 * clamp((70 - s.L) / 10, 0, 1);
-      s.qin += (feedT - s.qin) * dt / 0.6;
-      var oF = 0.6 * (60 - s.Q) + s.R;          // flow controller
-      var oL = 3.0 * (s.L - 30) + s.R;          // level controller (low limit 30 %)
-      s.active = oL < oF ? 'L' : 'F';
-      var o = clamp(Math.min(oF, oL), 0, 100);   // the lower demand drives the valve
-      s.R += (o - s.R) * dt / (s.active === 'L' ? 12 : 1.2);
-      s.valve += (o - s.valve) * dt / 0.4;
-      s.Q += (s.valve - s.Q) * dt / 0.3;
-      s.L = clamp(s.L + (s.qin - s.Q) * 0.1 * dt, 0, 100);
+      s.qd += ((s.high ? 95 : 50) - s.qd) * dt / 0.8;                 // water taken by the pumps
+      var eL = LSP - s.L;
+      // level controller on the fill valve
+      var iL = s.iL + 0.5 * eL * dt, uL = 5 * eL + iL;
+      if (uL > 100 || uL < 0) uL = clamp(uL, 0, 100); else s.iL = iL;
+      s.lv += (uL - s.lv) * dt / 0.5;
+      // scrubber valve: flow control, or level control when the fill valve is not enough
+      if (s.mode === 'F' && s.lv > 99 && s.L < LSP - 5) { s.mode = 'L'; s.i2 = s.fv - 4 * eL; }
+      else if (s.mode === 'L' && s.fv < FSP / K && s.L >= LSP) { s.mode = 'F'; s.iF = s.fv - 0.8 * (FSP - s.qs); }
+      var u;
+      if (s.mode === 'F') { var e = FSP - s.qs; s.iF += (0.8 / 1.5) * e * dt; u = 0.8 * e + s.iF; }
+      else { var i2 = s.i2 + 0.5 * eL * dt; u = 4 * eL + i2; if (u > 100 || u < 0) u = clamp(u, 0, 100); else s.i2 = i2; }
+      s.fv += (clamp(u, 0, 100) - s.fv) * dt / 0.5;
+      s.qs += (K * s.fv - s.qs) * dt / 0.4;
+      s.qf += (K * s.lv - s.qf) * dt / 0.4;
+      s.L = clamp(s.L + (s.qf + s.qs - s.qd) * 0.08 * dt, 0, 100);
     }
     function paintMode() {
-      var lvl = shown === 'L';
+      var lvl = s.mode === 'L'; shown = s.mode;
       el.fic.classList.toggle('is-on', !lvl); el.lic.classList.toggle('is-on', lvl);
       el.sigF.classList.toggle('is-on', !lvl); el.sigL.classList.toggle('is-on', lvl);
       el.mode.classList.toggle('is-level', lvl);
       el.led.className = 'led ' + (lvl ? 'led--hold' : 'led--run');
       el.modeTxt.textContent = t(lvl ? 'tank.level' : 'tank.flow');
-      el.btn.textContent = t(s.feedLow ? 'tank.restore' : 'tank.cut');
-      el.btn.setAttribute('aria-pressed', String(s.feedLow));
+      el.btn.textContent = t(s.high ? 'tank.normal' : 'tank.more');
+      el.btn.setAttribute('aria-pressed', String(s.high));
+      el.scr.textContent = t('tank.scrubber'); el.name.textContent = t('tank.name');
     }
     function paint(force) {
-      var h = 160 * s.L / 100;
-      el.liq.setAttribute('y', (220 - h).toFixed(1)); el.liq.setAttribute('height', h.toFixed(1));
-      el.feedFlow.style.strokeDashoffset = (-offIn).toFixed(1); el.outFlow.style.strokeDashoffset = (-offOut).toFixed(1);
+      var h = 130 * s.L / 100;
+      el.liq.setAttribute('y', (250 - h).toFixed(1)); el.liq.setAttribute('height', h.toFixed(1));
+      el.inFlow.style.strokeDashoffset = (-off.a).toFixed(1); el.drain.style.strokeDashoffset = (-off.a).toFixed(1);
+      el.fill.style.strokeDashoffset = (-off.b).toFixed(1); el.out.style.strokeDashoffset = (-off.c).toFixed(1);
       if (!force && roT < 0.15) return; roT = 0;
-      var L = Math.round(s.L), Q = Math.round(s.Q), V = Math.round(s.valve);
-      el.lvl.textContent = L + '%'; el.L.textContent = L; el.Q.textContent = Q; el.V.textContent = V;
-      el.feed.textContent = t('tank.feed') + ' ' + Math.round(s.qin) + ' m³/h';
-      el.vlv.textContent = 'FV-101 ' + V + '%';
+      var L = Math.round(s.L), lv = Math.round(s.lv), fv = Math.round(s.fv);
+      el.lvl.textContent = L + '%'; el.L.textContent = L; el.V.textContent = lv; el.Q.textContent = fv;
+      el.qs.textContent = Math.round(s.qs) + ' m³/h';
+      el.lv.textContent = 'LV ' + lv + '%'; el.fv.textContent = 'FV ' + fv + '%';
+      el.demand.textContent = t('tank.pumps') + ' ' + Math.round(s.qd) + ' m³/h';
     }
     function tick(dt) {
       acc += dt;
-      while (acc >= 0.05) {
-        step(0.05); acc -= 0.05;
-        if (s.active !== shown) { pend += 0.05; if (pend > 0.35) { shown = s.active; pend = 0; paintMode(); } } else pend = 0;
-      }
-      offIn += s.qin * dt * 0.9; offOut += s.Q * dt * 0.9; roT += dt;
+      while (acc >= 0.05) { step(0.05); acc -= 0.05; if (s.mode !== shown) paintMode(); }
+      off.a += s.qs * dt * 1.6; off.b += s.qf * dt * 1.1; off.c += s.qd * dt * 0.8; roT += dt;
     }
     function demo(dt) {              // plays by itself until the visitor takes over
       if (user) return;
       demoT += dt;
-      if (!s.feedLow && demoT > 5) { s.feedLow = true; demoT = 0; paintMode(); }
-      else if (s.feedLow && demoT > 24) { s.feedLow = false; demoT = -22; paintMode(); }
+      if (!s.high && demoT > 5) { s.high = true; demoT = 0; paintMode(); }
+      else if (s.high && demoT > 26) { s.high = false; demoT = -20; paintMode(); }
     }
     function loop(now) {
       raf = 0; if (!visible || document.hidden) return;
@@ -565,8 +575,8 @@
     function start() { if (!raf && !reduced) { last = performance.now(); raf = requestAnimationFrame(loop); } }
 
     el.btn.addEventListener('click', function () {
-      user = true; s.feedLow = !s.feedLow; paintMode();
-      if (reduced) { for (var i = 0; i < 700; i++) tick(0.05); paint(true); }   // show the settled state
+      user = true; s.high = !s.high; paintMode();
+      if (reduced) { for (var i = 0; i < 900; i++) tick(0.05); paint(true); }   // show the settled state
     });
     langListeners.push(function () { paintMode(); paint(true); });
     paintMode(); paint(true);

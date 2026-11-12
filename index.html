@@ -160,7 +160,7 @@
             </span>
           </h1>
 
-          <p class="hero__lead" data-seq="5" data-i18n="hero.lead">Automation specialist based in Tangier, Morocco. I program and commission PLCs, and I troubleshoot machines: drives, servo axes, vision systems, HMI and DCS.</p>
+          <p class="hero__lead" data-seq="5" data-i18n="hero.lead">Automation specialist based in Tangier, Morocco. I program and commission PLCs, and I troubleshoot machines: drives, servo axes, vision systems, HMI and DCS. I also take on projects and machine problems.</p>
 
           <div class="hero__cta" data-seq="6">
             <a class="btn" href="#contact"><span data-i18n="hero.cta1">Contact me</span>
@@ -368,10 +368,10 @@
         <article class="feat card" data-reveal>
           <div class="feat__text">
             <p class="case__meta"><span class="tag">OCP Maintenance Solutions</span><span>Jorf Lasfar · 2025–2026</span></p>
-            <h3 data-i18n="feat.title">Control valve switching from flow to level control</h3>
-            <p data-i18n="feat.p1">At OCP, some tasks were done by hand by the operators. One example: a control valve that works in flow control has to go to level control when the tank level gets too low.</p>
-            <p data-i18n="feat.p2">I wrote a program with two PID blocks that does this switch automatically.</p>
-            <p class="feat__try" data-i18n="feat.try">Press “Cut feed” and watch which controller takes the valve.</p>
+            <h3 data-i18n="feat.title">A flow valve that follows the tank level when needed</h3>
+            <p data-i18n="feat.p1">On a gas scrubber, a valve controls the flow of washing water. This water then goes to tank 07, which feeds many pumps and many points in production.</p>
+            <p data-i18n="feat.p2">Sometimes the valve that fills tank 07 is open at 100% and the level still drops. I wrote a program for this case: the scrubber valve stops following its flow setpoint and follows the level of tank 07.</p>
+            <p class="feat__try" data-i18n="feat.try">Press “Increase demand” and watch the two valves.</p>
             <ul class="chips">
               <li>PID</li><li>Yokogawa CENTUM VP</li><li>Emerson DeltaV</li><li>Siemens S7</li>
             </ul>
@@ -379,49 +379,64 @@
 
           <div class="feat__sim" id="tank">
             <div class="sim__bar">
-              <span class="sim__mode" id="tankMode"><span class="led led--run" aria-hidden="true"></span><b id="tankModeTxt">FIC-101 · flow control</b></span>
-              <button class="hbtn hbtn--hot" type="button" id="tankBtn" aria-pressed="false">Cut feed</button>
+              <span class="sim__mode" id="tankMode"><span class="led led--run" aria-hidden="true"></span><b id="tankModeTxt">Scrubber valve: flow control</b></span>
+              <button class="hbtn hbtn--hot" type="button" id="tankBtn" aria-pressed="false">Increase demand</button>
             </div>
             <svg class="pid-svg" viewBox="0 0 420 300" role="img" aria-labelledby="tankDesc">
-              <desc id="tankDesc" data-i18n="feat.aria">Tank with a level controller and a flow controller sharing one outlet valve.</desc>
-              <defs><clipPath id="tankClip"><rect x="41.5" y="61.5" width="107" height="157" rx="4" /></clipPath></defs>
-              <!-- pipes -->
-              <path class="p-pipe" d="M0 36H95V60" />
-              <path class="p-flow" id="tankFeedFlow" d="M0 36H95V60" />
-              <path class="p-pipe" d="M95 220V262H410" />
-              <path class="p-flow" id="tankOutFlow" d="M95 220V262H410" />
-              <path class="p-arrow" d="M402 256l9 6-9 6z" />
-              <text class="p-lbl" x="2" y="26" id="tankFeedLbl">FEED 60 m³/h</text>
-              <!-- tank -->
-              <g clip-path="url(#tankClip)"><rect class="p-liq" id="tankLiq" x="40" y="108" width="110" height="112" /></g>
-              <rect class="p-tank" x="40" y="60" width="110" height="160" rx="5" />
-              <path class="p-ll" d="M40 172H150" />
-              <text class="p-lbl p-lbl--ll" x="34" y="176" text-anchor="end">LL</text>
-              <text class="p-big" x="95" y="126" text-anchor="middle" id="tankLvl">70%</text>
-              <!-- instruments -->
-              <path class="p-line" d="M150 100H176" />
-              <g class="p-bub"><circle cx="192" cy="100" r="16" /><text x="192" y="98" text-anchor="middle">LT</text><text x="192" y="109" text-anchor="middle">101</text></g>
-              <path class="p-sig" d="M208 100H243" />
-              <g class="p-bub p-bub--c" id="tankLIC"><circle cx="262" cy="100" r="19" /><path d="M243 100H281" /><text x="262" y="96" text-anchor="middle">LIC</text><text x="262" y="112" text-anchor="middle">101</text></g>
-              <path class="p-line" d="M192 238V262" />
-              <g class="p-bub"><circle cx="192" cy="222" r="16" /><text x="192" y="220" text-anchor="middle">FT</text><text x="192" y="231" text-anchor="middle">101</text></g>
-              <path class="p-sig" d="M207 216L244 203" />
-              <g class="p-bub p-bub--c is-on" id="tankFIC"><circle cx="262" cy="196" r="19" /><path d="M243 196H281" /><text x="262" y="192" text-anchor="middle">FIC</text><text x="262" y="208" text-anchor="middle">101</text></g>
-              <!-- selector -->
-              <path class="p-sig" id="tankSigL" d="M281 100H340V133" />
-              <path class="p-sig is-on" id="tankSigF" d="M281 196H340V163" />
-              <rect class="p-sel" x="318" y="133" width="44" height="30" rx="3" />
-              <text class="p-seltxt" x="340" y="152" text-anchor="middle">SEL</text>
-              <path class="p-sig is-on" d="M362 148H385V235" />
-              <!-- valve -->
-              <path class="p-valve" d="M371 253V271L385 262ZM399 253V271L385 262Z" />
-              <path class="p-valve" d="M376 244A9 9 0 0 1 394 244ZM385 244V262" />
-              <text class="p-lbl" x="416" y="290" text-anchor="end" id="tankVlv">FV-101 60%</text>
+              <desc id="tankDesc" data-i18n="feat.aria">Gas scrubber whose washing water goes to tank 07. The tank has a fill valve on level control and the scrubber valve is on flow control.</desc>
+              <defs><clipPath id="tankClip"><rect x="161.5" y="121.5" width="127" height="127" rx="4" /></clipPath></defs>
+
+              <!-- pipes: scrubber water, scrubber drain, fill line, outlet to the pumps -->
+              <path class="p-pipe" d="M0 60H46V96" />
+              <path class="p-flow" id="tankInFlow" d="M0 60H46V96" />
+              <path class="p-pipe" d="M46 208V232H160" />
+              <path class="p-flow" id="tankDrainFlow" d="M46 208V232H160" />
+              <path class="p-pipe" d="M420 60H275V120" />
+              <path class="p-flow" id="tankFillFlow" d="M420 60H275V120" />
+              <path class="p-pipe" d="M225 250V278H420" />
+              <path class="p-flow" id="tankOutFlow" d="M225 250V278H420" />
+              <path class="p-arrow" d="M410 272l10 6-10 6z" />
+
+              <!-- scrubber -->
+              <rect class="p-tank" x="22" y="96" width="48" height="112" rx="24" />
+              <text class="p-lbl" x="46" y="156" text-anchor="middle" transform="rotate(-90 46 152)" id="tankScrLbl">SCRUBBER</text>
+              <text class="p-lbl" x="58" y="252" id="tankQs">20 m³/h</text>
+
+              <!-- tank 07 -->
+              <g clip-path="url(#tankClip)"><rect class="p-liq" id="tankLiq" x="160" y="172" width="130" height="78" /></g>
+              <rect class="p-tank" x="160" y="120" width="130" height="130" rx="5" />
+              <path class="p-ll" d="M160 172H290" />
+              <text class="p-lbl p-lbl--ll" x="296" y="176">SP</text>
+              <text class="p-lbl" x="225" y="140" text-anchor="middle" id="tankName">TANK 07</text>
+              <text class="p-big" x="225" y="216" text-anchor="middle" id="tankLvl">60%</text>
+              <text class="p-lbl" x="414" y="268" text-anchor="end" id="tankDemand">PUMPS 50 m³/h</text>
+
+              <!-- level loop -->
+              <path class="p-line" d="M210 108V120" />
+              <g class="p-bub"><circle cx="210" cy="92" r="16" /><text x="210" y="90" text-anchor="middle">LT</text><text x="210" y="101" text-anchor="middle">07</text></g>
+              <path class="p-sig" d="M210 76V53" />
+              <g class="p-bub p-bub--c" id="tankLIC"><circle cx="210" cy="34" r="19" /><path d="M191 34H229" /><text x="210" y="30" text-anchor="middle">LIC</text><text x="210" y="46" text-anchor="middle">07</text></g>
+              <path class="p-sig is-on" d="M229 34H345V42" />
+              <path class="p-valve" d="M331 51V69L345 60ZM359 51V69L345 60Z" />
+              <path class="p-valve" d="M336 51A9 9 0 0 1 354 51ZM345 51V60" />
+              <text class="p-lbl" x="414" y="46" text-anchor="end" id="tankLv">LV 50%</text>
+
+              <!-- flow loop on the scrubber water -->
+              <path class="p-line" d="M99 86H46" />
+              <g class="p-bub p-bub--c is-on" id="tankFIC"><circle cx="118" cy="86" r="19" /><path d="M99 86H137" /><text x="118" y="82" text-anchor="middle">FIC</text><text x="118" y="98" text-anchor="middle">101</text></g>
+              <path class="p-sig is-on" id="tankSigF" d="M118 67V49" />
+              <path class="p-sig" id="tankSigL" d="M191 34H140" />
+              <rect class="p-sel" x="96" y="19" width="44" height="30" rx="3" />
+              <text class="p-seltxt" x="118" y="38" text-anchor="middle">SEL</text>
+              <path class="p-sig is-on" d="M96 34H22V42" />
+              <path class="p-valve" d="M8 51V69L22 60ZM36 51V69L22 60Z" />
+              <path class="p-valve" d="M13 51A9 9 0 0 1 31 51ZM22 51V60" />
+              <text class="p-lbl" x="2" y="22" id="tankFv">FV 33%</text>
             </svg>
             <dl class="sim__vals">
-              <div><dt data-i18n="sim.level">Level</dt><dd><output id="tankL">70</output> %</dd></div>
-              <div><dt data-i18n="sim.flow">Outflow</dt><dd><output id="tankQ">60</output> m³/h</dd></div>
-              <div><dt data-i18n="sim.valve">Valve</dt><dd><output id="tankV">60</output> %</dd></div>
+              <div><dt data-i18n="sim.level">Level 07</dt><dd><output id="tankL">60</output> %</dd></div>
+              <div><dt data-i18n="sim.fill">Fill valve</dt><dd><output id="tankV">50</output> %</dd></div>
+              <div><dt data-i18n="sim.scr">Scrubber valve</dt><dd><output id="tankQ">33</output> %</dd></div>
             </dl>
             <p class="sim__note" data-i18n="sim.note">Simplified simulation, just to show the principle.</p>
           </div>
@@ -891,7 +906,7 @@
             </div>
 
             <p class="direct__where"><svg class="ico" aria-hidden="true"><use href="#i-pin" /></svg>
-              <span data-i18n="ct.where">Based in Tangier, Morocco.</span></p>
+              <span data-i18n="ct.where">Based in Tangier, Morocco. I take on projects and machine problems.</span></p>
             <p class="direct__form"><a href="https://script.google.com/macros/s/AKfycbwLgLW7gB7gdtmEnRhcrh9pupmcNH2-lowdPL0bWSpJl7Fq71GJiL6lwBsBsDbLvSXFxg/exec" target="_blank" rel="noopener"><span data-i18n="ct.form">Or use the detailed request form</span> <svg class="ico" aria-hidden="true"><use href="#i-ext" /></svg></a></p>
           </div>
         </div>
