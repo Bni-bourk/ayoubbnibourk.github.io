@@ -38,3 +38,9 @@ The address `https://ayoubbnibourk.com/` is written in `index.html` (canonical, 
 ## Publish
 
 Replace the content of the `ayoubbnibourk.github.io` repository with these files and push to `main`.
+
+## After changing the CSS or JavaScript
+
+`index.html` loads `style.css`, `fr.js` and `main.js` with a version tag (`?v=5`).
+When you change one of those files, raise the number in `index.html` (and in `404.html` for the CSS).
+Otherwise visitors can keep an old copy for a while and see a broken mix of old and new.
