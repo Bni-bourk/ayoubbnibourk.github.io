@@ -500,6 +500,7 @@ b, strong { font-weight: 600; }
 .pid-svg .p-flow { fill: none; stroke: var(--liquid); stroke-width: 3; stroke-dasharray: 7 9; stroke-linejoin: round; }
 .pid-svg .p-arrow { fill: var(--line-2); }
 .pid-svg .p-tank { fill: none; stroke: var(--ink-2); stroke-width: 2.5; }
+.pid-svg .p-vessel { fill: var(--panel); stroke: var(--ink-2); stroke-width: 2.5; }
 .pid-svg .p-liq { fill: var(--liquid); opacity: .8; }
 .pid-svg .p-ll { stroke: var(--amber); stroke-width: 1.5; stroke-dasharray: 5 4; }
 .pid-svg .p-lbl { fill: var(--muted); font-size: 12px; letter-spacing: .02em; }

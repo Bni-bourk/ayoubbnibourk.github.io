@@ -544,8 +544,8 @@
       el.scr.textContent = t('tank.scrubber'); el.name.textContent = t('tank.name');
     }
     function paint(force) {
-      var h = 130 * s.L / 100;
-      el.liq.setAttribute('y', (250 - h).toFixed(1)); el.liq.setAttribute('height', h.toFixed(1));
+      var h = 78 * s.L / 100;        // tank is 78 units tall, bottom at y = 284
+      el.liq.setAttribute('y', (284 - h).toFixed(1)); el.liq.setAttribute('height', h.toFixed(1));
       el.inFlow.style.strokeDashoffset = (-off.a).toFixed(1); el.drain.style.strokeDashoffset = (-off.a).toFixed(1);
       el.fill.style.strokeDashoffset = (-off.b).toFixed(1); el.out.style.strokeDashoffset = (-off.c).toFixed(1);
       if (!force && roT < 0.15) return; roT = 0;

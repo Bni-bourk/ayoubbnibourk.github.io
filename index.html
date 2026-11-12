@@ -384,54 +384,56 @@
             </div>
             <svg class="pid-svg" viewBox="0 0 420 300" role="img" aria-labelledby="tankDesc">
               <desc id="tankDesc" data-i18n="feat.aria">Gas scrubber whose washing water goes to tank 07. The tank has a fill valve on level control and the scrubber valve is on flow control.</desc>
-              <defs><clipPath id="tankClip"><rect x="161.5" y="121.5" width="127" height="127" rx="4" /></clipPath></defs>
+              <defs><clipPath id="tankClip"><rect x="25.5" y="207.5" width="147" height="75" rx="4" /></clipPath></defs>
 
-              <!-- pipes: scrubber water, scrubber drain, fill line, outlet to the pumps -->
-              <path class="p-pipe" d="M0 60H46V96" />
-              <path class="p-flow" id="tankInFlow" d="M0 60H46V96" />
-              <path class="p-pipe" d="M46 208V232H160" />
-              <path class="p-flow" id="tankDrainFlow" d="M46 208V232H160" />
-              <path class="p-pipe" d="M420 60H275V120" />
-              <path class="p-flow" id="tankFillFlow" d="M420 60H275V120" />
-              <path class="p-pipe" d="M225 250V278H420" />
-              <path class="p-flow" id="tankOutFlow" d="M225 250V278H420" />
-              <path class="p-arrow" d="M410 272l10 6-10 6z" />
+              <!-- pipes: water to the scrubber sprays, scrubber drains to the trough and the tank, fill line, outlet to the pumps -->
+              <path class="p-pipe" d="M420 78H200V106M250 78V106M300 78V106" />
+              <path class="p-flow" id="tankInFlow" d="M420 78H200V106M250 78V106M300 78V106" />
+              <path class="p-pipe" d="M215 146V176M255 146V176M295 146V176M196 181H160V206" />
+              <path class="p-flow" id="tankDrainFlow" d="M215 146V176M255 146V176M295 146V176M196 181H160V206" />
+              <path class="p-pipe" d="M0 168H52V206" />
+              <path class="p-flow" id="tankFillFlow" d="M0 168H52V206" />
+              <path class="p-pipe" d="M174 270H420" />
+              <path class="p-flow" id="tankOutFlow" d="M174 270H420" />
+              <path class="p-arrow" d="M410 264l10 6-10 6z" />
 
-              <!-- scrubber -->
-              <rect class="p-tank" x="22" y="96" width="48" height="112" rx="24" />
-              <text class="p-lbl" x="46" y="156" text-anchor="middle" transform="rotate(-90 46 152)" id="tankScrLbl">SCRUBBER</text>
-              <text class="p-lbl" x="58" y="252" id="tankQs">20 m³/h</text>
+              <!-- scrubber (horizontal) and the trough under it -->
+              <rect class="p-vessel" x="165" y="106" width="180" height="40" rx="20" />
+              <text class="p-lbl" x="255" y="130" text-anchor="middle" id="tankScrLbl">SCRUBBER</text>
+              <rect class="p-liq" x="197" y="174" width="116" height="10" />
+              <path class="p-tank" d="M196 166V184H314V166" />
+              <text class="p-lbl" x="204" y="70" id="tankQs">20 m³/h</text>
 
               <!-- tank 07 -->
-              <g clip-path="url(#tankClip)"><rect class="p-liq" id="tankLiq" x="160" y="172" width="130" height="78" /></g>
-              <rect class="p-tank" x="160" y="120" width="130" height="130" rx="5" />
-              <path class="p-ll" d="M160 172H290" />
-              <text class="p-lbl p-lbl--ll" x="296" y="176">SP</text>
-              <text class="p-lbl" x="225" y="140" text-anchor="middle" id="tankName">TANK 07</text>
-              <text class="p-big" x="225" y="216" text-anchor="middle" id="tankLvl">60%</text>
-              <text class="p-lbl" x="414" y="268" text-anchor="end" id="tankDemand">PUMPS 50 m³/h</text>
+              <g clip-path="url(#tankClip)"><rect class="p-liq" id="tankLiq" x="24" y="237" width="150" height="47" /></g>
+              <rect class="p-tank" x="24" y="206" width="150" height="78" rx="5" />
+              <path class="p-ll" d="M24 237H174" />
+              <text class="p-lbl p-lbl--ll" x="180" y="241">SP</text>
+              <text class="p-lbl" x="99" y="224" text-anchor="middle" id="tankName">TANK 07</text>
+              <text class="p-big" x="99" y="268" text-anchor="middle" id="tankLvl">60%</text>
+              <text class="p-lbl" x="414" y="260" text-anchor="end" id="tankDemand">PUMPS 50 m³/h</text>
 
-              <!-- level loop -->
-              <path class="p-line" d="M210 108V120" />
-              <g class="p-bub"><circle cx="210" cy="92" r="16" /><text x="210" y="90" text-anchor="middle">LT</text><text x="210" y="101" text-anchor="middle">07</text></g>
-              <path class="p-sig" d="M210 76V53" />
-              <g class="p-bub p-bub--c" id="tankLIC"><circle cx="210" cy="34" r="19" /><path d="M191 34H229" /><text x="210" y="30" text-anchor="middle">LIC</text><text x="210" y="46" text-anchor="middle">07</text></g>
-              <path class="p-sig is-on" d="M229 34H345V42" />
-              <path class="p-valve" d="M331 51V69L345 60ZM359 51V69L345 60Z" />
-              <path class="p-valve" d="M336 51A9 9 0 0 1 354 51ZM345 51V60" />
-              <text class="p-lbl" x="414" y="46" text-anchor="end" id="tankLv">LV 50%</text>
+              <!-- level loop on the tank fill valve -->
+              <path class="p-line" d="M100 199V206" />
+              <g class="p-bub"><circle cx="100" cy="186" r="13" /><text x="100" y="190" text-anchor="middle">LT</text></g>
+              <path class="p-sig" d="M100 173V159" />
+              <g class="p-bub p-bub--c" id="tankLIC"><circle cx="100" cy="140" r="19" /><path d="M81 140H119" /><text x="100" y="136" text-anchor="middle">LIC</text><text x="100" y="152" text-anchor="middle">07</text></g>
+              <path class="p-sig is-on" d="M81 140H26V150" />
+              <path class="p-valve" d="M12 159V177L26 168ZM40 159V177L26 168Z" />
+              <path class="p-valve" d="M17 159A9 9 0 0 1 35 159ZM26 159V168" />
+              <text class="p-lbl" x="2" y="128" id="tankLv">LV 50%</text>
 
-              <!-- flow loop on the scrubber water -->
-              <path class="p-line" d="M99 86H46" />
-              <g class="p-bub p-bub--c is-on" id="tankFIC"><circle cx="118" cy="86" r="19" /><path d="M99 86H137" /><text x="118" y="82" text-anchor="middle">FIC</text><text x="118" y="98" text-anchor="middle">101</text></g>
-              <path class="p-sig is-on" id="tankSigF" d="M118 67V49" />
-              <path class="p-sig" id="tankSigL" d="M191 34H140" />
-              <rect class="p-sel" x="96" y="19" width="44" height="30" rx="3" />
-              <text class="p-seltxt" x="118" y="38" text-anchor="middle">SEL</text>
-              <path class="p-sig is-on" d="M96 34H22V42" />
-              <path class="p-valve" d="M8 51V69L22 60ZM36 51V69L22 60Z" />
-              <path class="p-valve" d="M13 51A9 9 0 0 1 31 51ZM22 51V60" />
-              <text class="p-lbl" x="2" y="22" id="tankFv">FV 33%</text>
+              <!-- flow loop on the scrubber water, and the level signal that can take it over -->
+              <path class="p-sig" id="tankSigL" d="M100 121V16H300" />
+              <rect class="p-sel" x="300" y="4" width="44" height="24" rx="3" />
+              <text class="p-seltxt" x="322" y="20" text-anchor="middle">SEL</text>
+              <path class="p-sig is-on" id="tankSigF" d="M322 34V28" />
+              <g class="p-bub p-bub--c is-on" id="tankFIC"><circle cx="322" cy="50" r="16" /><path d="M306 50H338" /><text x="322" y="47" text-anchor="middle">FIC</text><text x="322" y="61" text-anchor="middle">101</text></g>
+              <path class="p-line" d="M322 66V74" />
+              <path class="p-sig is-on" d="M344 16H385V60" />
+              <path class="p-valve" d="M371 69V87L385 78ZM399 69V87L385 78Z" />
+              <path class="p-valve" d="M376 69A9 9 0 0 1 394 69ZM385 69V78" />
+              <text class="p-lbl" x="414" y="104" text-anchor="end" id="tankFv">FV 33%</text>
             </svg>
             <dl class="sim__vals">
               <div><dt data-i18n="sim.level">Level 07</dt><dd><output id="tankL">60</output> %</dd></div>
