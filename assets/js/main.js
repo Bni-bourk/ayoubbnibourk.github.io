@@ -36,7 +36,7 @@
       'msg.subject': 'Request from your website'
     },
     fr: {
-      'tank.flow': 'FIC-101 · régulation de débit', 'tank.level': 'LIC-101 · régulation de niveau',
+      'tank.flow': 'FIC-101 · régulation débit', 'tank.level': 'LIC-101 · régulation niveau',
       'tank.cut': "Couper l'alimentation", 'tank.restore': "Rétablir l'alimentation", 'tank.feed': 'ALIM.',
       'rfid.tool': 'OUTIL', 'rfid.prog': 'PROGRAMME',
       'toast.copied': 'Adresse e-mail copiée',
