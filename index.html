@@ -36,7 +36,7 @@
 
   <link rel="preload" href="assets/fonts/barlow-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/style.css?v=5">
+  <link rel="stylesheet" href="assets/css/style.css?v=6">
 
   <script>
     /* Runs before first paint: theme + language, so nothing flashes. */
@@ -49,6 +49,16 @@
       if (q) l = q[1];
       if (l !== 'fr' && l !== 'en') l = /^fr/i.test(navigator.language || '') ? 'fr' : 'en';
       d.setAttribute('data-lang', l);
+      /* /?lang=fr is its own page for search engines: own canonical, url, locale, title and description */
+      if (q && q[1] === 'fr') {
+        var m = function (sel, attr, v) { var e = document.querySelector(sel); if (e) e.setAttribute(attr, v); };
+        m('link[rel="canonical"]', 'href', 'https://ayoubbnibourk.com/?lang=fr');
+        m('meta[property="og:url"]', 'content', 'https://ayoubbnibourk.com/?lang=fr');
+        m('meta[property="og:locale"]', 'content', 'fr_FR');
+        m('meta[property="og:locale:alternate"]', 'content', 'en_US');
+        m('meta[property="og:title"]', 'content', 'Ayoub Bni-Bourk — Spécialiste en automatisme');
+        m('meta[property="og:description"]', 'content', "Programmation et mise en service d'automates, dépannage, motion control, vision, supervision et DCS. WorldSkills Lyon 2024 Best of Nation.");
+      }
     })();
   </script>
 
@@ -160,7 +170,7 @@
             </span>
           </h1>
 
-          <p class="hero__lead" data-seq="5" data-i18n="hero.lead">Automation specialist based in Tangier, Morocco. I program and commission PLCs, and I troubleshoot machines: drives, servo axes, vision systems, HMI and DCS. I also take on projects and machine problems.</p>
+          <p class="hero__lead" data-seq="5" data-i18n="hero.lead">Automation specialist based in Tangier, Morocco. I program and commission PLCs, work on Yokogawa and Emerson DCS, and troubleshoot machines: drives, servo axes, vision systems and HMIs. I'm also available for projects and machine troubleshooting.</p>
 
           <div class="hero__cta" data-seq="6">
             <a class="btn" href="#contact"><span data-i18n="hero.cta1">Contact me</span>
@@ -169,15 +179,15 @@
             <span class="cvlinks">
               <svg class="ico" aria-hidden="true"><use href="#i-down" /></svg>
               <span data-i18n="hero.cv">CV</span>
-              <a href="CV-Ayoub-Bni-Bourk-EN.pdf" download>EN</a>
-              <a href="CV-Ayoub-Bni-Bourk-FR.pdf" download>FR</a>
+              <a href="CV-Ayoub-Bni-Bourk-EN.pdf" download aria-label="Download CV (English)" data-i18n-attr="aria-label:hero.cvEn">EN</a>
+              <a href="CV-Ayoub-Bni-Bourk-FR.pdf" download aria-label="Download CV (French)" data-i18n-attr="aria-label:hero.cvFr">FR</a>
             </span>
           </div>
 
           <ul class="readouts" data-seq="7">
             <li><b data-count="7">7</b><span data-i18n="hero.r1">PLC brands</span></li>
             <li><b data-count="2">2</b><span data-i18n="hero.r2">DCS platforms</span></li>
-            <li><b data-count="5">5</b><span data-i18n="hero.r3">industrial networks</span></li>
+            <li><b data-count="5">5</b><span data-i18n="hero.r3">communication protocols</span></li>
             <li class="readouts__award">
               <svg class="ico" aria-hidden="true"><use href="#i-award" /></svg>
               <span data-i18n="hero.r4">WorldSkills Lyon 2024<br>Best of Nation</span>
@@ -208,9 +218,9 @@
 
             <div class="plate__ctl">
               <div class="stepper" role="group" aria-label="Setpoint" data-i18n-attr="aria-label:pid.sp">
-                <button type="button" id="pidDown" aria-label="Lower" data-i18n-attr="aria-label:pid.lower">−</button>
+                <button type="button" id="pidDown" aria-label="Decrease setpoint" data-i18n-attr="aria-label:pid.lower">−</button>
                 <span id="pidWhat">SP</span>
-                <button type="button" id="pidUp" aria-label="Raise" data-i18n-attr="aria-label:pid.raise">+</button>
+                <button type="button" id="pidUp" aria-label="Increase setpoint" data-i18n-attr="aria-label:pid.raise">+</button>
               </div>
               <button class="hbtn" type="button" id="pidDist" data-i18n="pid.dist">Disturb</button>
               <div class="seg" role="group" aria-label="Controller mode" data-i18n-attr="aria-label:pid.mode">
@@ -219,7 +229,7 @@
               </div>
             </div>
 
-            <figcaption class="plate__cap" data-i18n="pid.cap">A PID loop simulated in your browser. Change the setpoint or add a disturbance. I did this kind of loop on site: oil temperature on an evaporator, with PID Compact.</figcaption>
+            <figcaption class="plate__cap" data-i18n="pid.cap">A PID loop simulated in your browser. Change the setpoint or add a disturbance. I did this kind of loop on site: oil temperature on an evaporator, with an Emerson PID controller that I configured.</figcaption>
           </figure>
         </div>
 
@@ -238,7 +248,7 @@
           <li>Trio Motion</li>
           <li>Keyence Vision</li>
           <li>Mitsubishi</li>
-          <li>GE Fanuc</li>
+          <li>Emerson (GE Fanuc)</li>
           <li>Unitronics</li>
           <li>Schneider</li>
           <li>Profinet</li>
@@ -277,7 +287,7 @@
               <div><dt data-i18n="about.f1k">Based in</dt><dd data-i18n="about.f1v">Tangier, Morocco</dd></div>
               <div><dt data-i18n="about.f2k">Current role</dt><dd data-i18n="about.f2v">Automation Specialist, SFC Solution</dd></div>
               <div><dt data-i18n="about.f3k">Languages</dt><dd data-i18n="about.f3v">Amazigh and Arabic (native), French (professional), English (fluent)</dd></div>
-              <div><dt data-i18n="about.f4k">Studying</dt><dd data-i18n="about.f4v">Master's (MUS), Electromechanical Engineering of Industrial Systems, ENSA Kenitra</dd></div>
+              <div><dt data-i18n="about.f4k">Studying</dt><dd data-i18n="about.f4v">Specialized Master's (MUS), Electromechanical Engineering of Industrial Systems, ENSA Kenitra</dd></div>
             </dl>
           </div>
 
@@ -318,7 +328,7 @@
           <li class="card svc__item" data-reveal data-spot>
             <svg class="svc__ico" viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="10" width="36" height="28" rx="2" /><path d="M16 10v28M6 19h10M6 29h10" /><circle cx="24" cy="18" r="1.6" class="dot" /><circle cx="30" cy="18" r="1.6" class="dot" /><circle cx="36" cy="18" r="1.6" class="dot" /><path d="M22 26h16M22 31h16" /></svg>
             <h3 data-i18n="svc.1t">PLC programming and commissioning</h3>
-            <p data-i18n="svc.1d">Siemens S7-1500 and S7-1200 with TIA Portal and ET200, from the hardware configuration to the tests on site. I also work on Mitsubishi, Emerson (GE Fanuc), Unitronics, Schneider, Delta and Opto 22.</p>
+            <p data-i18n="svc.1d">Siemens S7-1500 and S7-1200 with TIA Portal and ET200, from hardware configuration to site testing. I also work on Mitsubishi, Emerson (GE Fanuc), Unitronics, Schneider, Delta and Opto 22.</p>
           </li>
           <li class="card svc__item" data-reveal data-spot>
             <svg class="svc__ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 7 44 40H4z" /><path d="M24 19v10" /><circle cx="24" cy="34" r="1.6" class="dot" /></svg>
@@ -326,18 +336,23 @@
             <p data-i18n="svc.2d">Communication faults between PLC, HMI and drives, faulty inputs, synchronization problems between axes. I look for the cause on the machine and I fix it.</p>
           </li>
           <li class="card svc__item" data-reveal data-spot>
+            <svg class="svc__ico" viewBox="0 0 48 48" aria-hidden="true"><rect x="17" y="17" width="14" height="14" rx="2" /><rect x="4" y="4" width="10" height="10" rx="2" /><rect x="34" y="4" width="10" height="10" rx="2" /><rect x="4" y="34" width="10" height="10" rx="2" /><rect x="34" y="34" width="10" height="10" rx="2" /><path d="M14 14l3 3M34 14l-3 3M14 34l3-3M34 34l-3-3" /><circle cx="24" cy="24" r="1.6" class="dot" /></svg>
+            <h3 data-i18n="svc.3t">DCS: control and supervision</h3>
+            <p data-i18n="svc.3d">Yokogawa CENTUM VP and Emerson DeltaV: control programming and changes (PID loops, control logic), operator graphics, and data sent to AVEVA PI.</p>
+          </li>
+          <li class="card svc__item" data-reveal data-spot>
             <svg class="svc__ico" viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="8" width="38" height="26" rx="2" /><path d="M18 41h12M24 34v7" /><path d="M10 27l7-8 6 5 6-9 9 7" /></svg>
-            <h3 data-i18n="svc.3t">SCADA, HMI and DCS</h3>
-            <p data-i18n="svc.3d">WinCC Professional, Yokogawa CENTUM VP and Emerson DeltaV: synoptics, program changes and data sent to AVEVA PI.</p>
+            <h3 data-i18n="svc.3bt">SCADA and HMI</h3>
+            <p data-i18n="svc.3bd">WinCC Professional: supervision screens and field data, for example plant energy monitoring from the energy meters.</p>
           </li>
           <li class="card svc__item" data-reveal data-spot>
             <svg class="svc__ico" viewBox="0 0 48 48" aria-hidden="true"><circle cx="18" cy="24" r="12" /><path d="M12.5 29V19l5.5 6 5.5-6v10" /><path d="M30 24h13M38 19l5 5-5 5" /></svg>
-            <h3 data-i18n="svc.4t">Motion control and vision</h3>
+            <h3 data-i18n="svc.4t">Motion control, vision and marking</h3>
             <p data-i18n="svc.4d">Trio Motion, servo drives, encoder synchronization, Keyence vision systems and printers, Mitsubishi and Fanuc robots.</p>
           </li>
           <li class="card svc__item" data-reveal data-spot>
             <svg class="svc__ico" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="18" r="12" /><path d="M12 18h24" /><path d="M24 30v6M12 42h24M24 36l-7 6h14z" /></svg>
-            <h3 data-i18n="svc.5t">Control loops and instrumentation</h3>
+            <h3 data-i18n="svc.5t">Control loops, instrumentation and drives</h3>
             <p data-i18n="svc.5d">PID loops, instrument calibration, variable speed drives (Siemens, ABB, Schneider, Yaskawa), motor control.</p>
           </li>
           <li class="card svc__item" data-reveal data-spot>
@@ -368,12 +383,12 @@
         <article class="feat card" data-reveal>
           <div class="feat__text">
             <p class="case__meta"><span class="tag">OCP Maintenance Solutions</span><span>Jorf Lasfar · 2025–2026</span></p>
-            <h3 data-i18n="feat.title">A flow valve that follows the tank level when needed</h3>
-            <p data-i18n="feat.p1">On a gas scrubber, a valve controls the flow of washing water. This water then goes to tank 07, which feeds many pumps and many points in production.</p>
+            <h3 data-i18n="feat.title">Flow-to-level override on a scrubber valve</h3>
+            <p data-i18n="feat.p1">On a gas scrubber, a valve controls the flow of washing water. This water then goes to tank 07, which feeds several pumps and process users.</p>
             <p data-i18n="feat.p2">Sometimes the valve that fills tank 07 is open at 100% and the level still drops. I wrote a program for this case: the scrubber valve stops following its flow setpoint and follows the level of tank 07.</p>
             <p class="feat__try" data-i18n="feat.try">Press “Increase demand” and watch the two valves.</p>
             <ul class="chips">
-              <li>PID</li><li>Yokogawa CENTUM VP</li><li>Emerson DeltaV</li><li>Siemens S7</li>
+              <li>PID</li><li>Yokogawa CENTUM VP</li>
             </ul>
           </div>
 
@@ -450,18 +465,18 @@
           <li class="card case" data-reveal data-spot>
             <div class="case__fig" data-fig>
               <svg viewBox="0 0 360 150" aria-hidden="true">
-                <text class="g-lbl" x="14" y="26">4 × LINE</text><text class="g-lbl" x="346" y="26" text-anchor="end">Δt = 2 h</text>
-                <path class="g-line" d="M72 82H104M164 82H196M256 82H288" />
-                <path class="g-march" d="M72 82H104M164 82H196M256 82H288" />
-                <g class="g-node"><rect x="12" y="56" width="60" height="52" rx="3" /><text x="42" y="80" text-anchor="middle">LAB</text><text class="g-sub" x="42" y="96" text-anchor="middle">Excel</text></g>
-                <g class="g-node"><rect x="104" y="56" width="60" height="52" rx="3" /><text x="134" y="80" text-anchor="middle">OPC</text><text class="g-sub" x="134" y="96" text-anchor="middle">server</text></g>
-                <g class="g-node g-node--hot"><rect x="196" y="56" width="60" height="52" rx="3" /><text x="226" y="80" text-anchor="middle">DCS</text><text class="g-sub" x="226" y="96" text-anchor="middle">synoptic</text></g>
-                <g class="g-node"><rect x="288" y="56" width="60" height="52" rx="3" /><text x="318" y="80" text-anchor="middle">PI</text><text class="g-sub" x="318" y="96" text-anchor="middle">historian</text></g>
+                <text class="g-lbl" x="14" y="26" data-i18n="fig.line">4 × LINE</text><text class="g-lbl" x="346" y="26" text-anchor="end">Δt = 2 h</text>
+                <path class="g-line" d="M75 82H101M167 82H193M259 82H285" />
+                <path class="g-march" d="M75 82H101M167 82H193M259 82H285" />
+                <g class="g-node"><rect x="9" y="56" width="66" height="52" rx="3" /><text x="42" y="80" text-anchor="middle">LAB</text><text class="g-sub" x="42" y="96" text-anchor="middle">Excel</text></g>
+                <g class="g-node"><rect x="101" y="56" width="66" height="52" rx="3" /><text x="134" y="80" text-anchor="middle">OPC</text><text class="g-sub" x="134" y="96" text-anchor="middle" data-i18n="fig.server">server</text></g>
+                <g class="g-node g-node--hot"><rect x="193" y="56" width="66" height="52" rx="3" /><text x="226" y="80" text-anchor="middle">DCS</text><text class="g-sub" x="226" y="96" text-anchor="middle" data-i18n="fig.syn">graphics</text></g>
+                <g class="g-node"><rect x="285" y="56" width="66" height="52" rx="3" /><text x="318" y="80" text-anchor="middle">PI</text><text class="g-sub" x="318" y="96" text-anchor="middle" data-i18n="fig.hist">historian</text></g>
               </svg>
             </div>
             <p class="case__meta"><span class="tag">OCP Maintenance Solutions</span><span>2025–2026</span></p>
             <h3 data-i18n="c1.t">Lab results on the DCS for 4 lines</h3>
-            <p data-i18n="c1.d">I connected the lab stations of 4 lines to the DCS with Excel and an OPC server. The lab results, entered every 2 hours, are historized, displayed on the DCS synoptics next to the sensor values, and sent to AVEVA PI.</p>
+            <p data-i18n="c1.d">I connected the lab stations of 4 lines to the DCS with Excel and an OPC server. The lab results, entered every 2 hours, are logged, displayed on the DCS graphics next to the sensor values, and sent to AVEVA PI.</p>
             <ul class="chips"><li>OPC</li><li>Excel</li><li>AVEVA PI</li><li>DCS</li></ul>
           </li>
 
@@ -481,10 +496,10 @@
                 <text class="g-readtxt" x="178" y="124" text-anchor="middle" id="rfidTxt">TOOL 01 → PROGRAM 01</text>
               </svg>
             </div>
-            <p class="case__meta"><span class="tag">SFC Solution</span><span>Tangier · 2026</span></p>
+            <p class="case__meta"><span class="tag">SFC Solution</span><span data-i18n="when.tng">Tangier · 2026</span></p>
             <h3 data-i18n="c2.t">RFID tool recognition on an 8-station cutting machine</h3>
-            <p data-i18n="c2.d">Program that writes the RFID tags of the tools, so each tool is recognized and the right program is selected.</p>
-            <ul class="chips"><li>RFID</li><li>PLC</li><li>Emerson GE Fanuc</li></ul>
+            <p data-i18n="c2.d">The machine reads the RFID tag on each tool to select the right program in the PLC. The original tags were lost, so I wrote new tags and assigned one to each tool, matching its program.</p>
+            <ul class="chips"><li>RFID</li><li>PLC</li><li>Emerson (GE Fanuc)</li></ul>
           </li>
 
           <li class="card case" data-reveal data-spot>
@@ -493,23 +508,23 @@
                 <text class="g-lbl" x="14" y="26">ENC</text>
                 <path class="g-enc" d="M14 62h24v-22h24v22h24v-22h24v22h24v-22h24v22h24v-22h24v22h24v-22h24v22h24v-22h24v22h20" />
                 <path class="g-guide" d="M38 40V112M134 40V112M230 40V112M326 40V112" />
-                <text class="g-lbl" x="14" y="92">PRINT</text>
+                <text class="g-lbl" x="14" y="92" data-i18n="fig.print">PRINT</text>
                 <g class="g-marks"><rect x="36" y="100" width="18" height="12" /><rect x="132" y="100" width="18" height="12" /><rect x="228" y="100" width="18" height="12" /><rect x="324" y="100" width="18" height="12" /></g>
                 <text class="g-bad" x="346" y="140" text-anchor="end">OFFSET</text>
                 <text class="g-ok" x="346" y="140" text-anchor="end">SYNC OK</text>
                 <text class="g-lbl" x="14" y="140">8 × SERVO</text>
               </svg>
             </div>
-            <p class="case__meta"><span class="tag">SFC Solution</span><span>Tangier · 2026</span></p>
+            <p class="case__meta"><span class="tag">SFC Solution</span><span data-i18n="when.tng">Tangier · 2026</span></p>
             <h3 data-i18n="c3.t">Synchronization fault between a cutting machine and its printers</h3>
-            <p data-i18n="c3.d">Troubleshooting on a cutting machine (Emerson GE Fanuc, Trio Motion, 8 servo drives) and its Keyence printers, which are synchronized by encoder.</p>
-            <ul class="chips"><li>Trio Motion</li><li>Servo drives</li><li>Keyence</li><li>Encoder</li></ul>
+            <p data-i18n="c3.d">Troubleshooting on a cutting machine (Emerson (GE Fanuc), Trio Motion, 8 servo drives) and its Keyence printers, which are synchronized by encoder.</p>
+            <ul class="chips"><li>Trio Motion</li><li data-i18n="t.servo">Servo drives</li><li>Keyence</li><li data-i18n="t.enc">Encoder</li></ul>
           </li>
 
           <li class="card case" data-reveal data-spot>
             <div class="case__fig" data-fig>
               <svg viewBox="0 0 360 150" aria-hidden="true">
-                <text class="g-lbl" x="14" y="26">kWh</text><text class="g-amber" x="346" y="26" text-anchor="end">IN PROGRESS</text>
+                <text class="g-lbl" x="14" y="26">kWh</text><text class="g-amber" x="346" y="26" text-anchor="end" data-i18n="fig.prog">IN PROGRESS</text>
                 <path class="g-axis" d="M14 126H346M14 100H346M14 74H346M14 48H346" />
                 <g class="g-bars">
                   <rect x="24" y="76" width="18" height="50" /><rect x="52" y="62" width="18" height="64" /><rect x="80" y="84" width="18" height="42" /><rect x="108" y="54" width="18" height="72" />
@@ -520,9 +535,9 @@
               </svg>
             </div>
             <p class="case__meta"><span class="tag">SFC Solution</span><span data-i18n="c4.when">Tangier · ongoing</span></p>
-            <h3 data-i18n="c4.t">Energy monitoring of the factory</h3>
-            <p data-i18n="c4.d">WinCC Professional SCADA to follow the energy consumption of the whole factory from the energy meters. I'm working on it now.</p>
-            <ul class="chips"><li>WinCC Professional</li><li>SCADA</li><li>Energy meters</li></ul>
+            <h3 data-i18n="c4.t">Plant energy monitoring</h3>
+            <p data-i18n="c4.d">WinCC Professional SCADA to monitor plant-wide energy consumption from the energy meters. I'm working on it now.</p>
+            <ul class="chips"><li>WinCC Professional</li><li>SCADA</li><li>VBScript</li><li data-i18n="t.meters">Energy meters</li></ul>
           </li>
 
           <li class="card case" data-reveal data-spot>
@@ -570,7 +585,7 @@
             <li>
               <a href="https://github.com/Bni-bourk/pdf-comment-extractor" target="_blank" rel="noopener">
                 <span class="soft__name">PDF comment extractor</span>
-                <span class="soft__desc" data-i18n="soft.2">Desktop app that extracts the comments of a PDF (even 400+ pages) to an Excel file. I made it at Actemium for the comment sheets (CRS).</span>
+                <span class="soft__desc" data-i18n="soft.2">Desktop app that extracts the comments of a PDF (even 400+ pages) to an Excel file. I developed it in the design office at Actemium for the comment sheets (CRS).</span>
                 <span class="soft__tech">Python · PyMuPDF</span>
                 <span class="soft__go">GitHub <svg class="ico" aria-hidden="true"><use href="#i-ext" /></svg></span>
               </a>
@@ -612,8 +627,8 @@
                 <p class="sfc__when"><span class="led led--run" aria-hidden="true"></span><span data-i18n="e5.when">Sep 2026 – Present</span></p>
               </header>
               <ul>
-                <li data-i18n="e5.b1"><b>Maintenance and troubleshooting:</b> communication faults PLC/HMI (Unitronics) and PLC/drive (Mitsubishi), faulty PLC inputs, synchronization fault between the cutting machine (Emerson GE Fanuc, Trio Motion, 8 servo drives) and the Keyence printers synchronized by encoder.</li>
-                <li data-i18n="e5.b2"><b>Program development:</b> RFID tag writing on an 8-station cutting machine, so each tool is recognized and the right program is selected; oil temperature control on an evaporator (PID Compact).</li>
+                <li data-i18n="e5.b1"><b>Maintenance and troubleshooting:</b> communication faults PLC/HMI (Unitronics) and PLC/drive (Mitsubishi), faulty PLC inputs, synchronization fault between the cutting machine (Emerson (GE Fanuc), Trio Motion, 8 servo drives) and the Keyence printers synchronized by encoder.</li>
+                <li data-i18n="e5.b2"><b>Machine setup:</b> wrote new RFID tags for the 8-station cutting machine (the original tags were lost) and assigned each one to its tool and PLC program; configured an Emerson PID controller for the evaporator oil temperature.</li>
                 <li data-i18n="e5.b3"><b>Ongoing project:</b> WinCC Professional SCADA to monitor the energy consumption of the whole factory from energy meters.</li>
               </ul>
             </article>
@@ -623,14 +638,14 @@
             <div class="sfc__rail" aria-hidden="true"><span class="sfc__box">S4</span><span class="sfc__link"></span></div>
             <article class="sfc__body">
               <header class="sfc__head">
-                <div><h3 data-i18n="e4.role">Automation Technician</h3><p class="sfc__org">OCP Maintenance Solutions · El Jorf Lasfar, El Jadida</p></div>
+                <div><h3 data-i18n="e4.role">Automation Technician</h3><p class="sfc__org">OCP Maintenance Solutions · Jorf Lasfar, El Jadida</p></div>
                 <p class="sfc__when" data-i18n="e4.when">Aug 2025 – Aug 2026</p>
               </header>
               <button class="sfc__more" type="button" aria-expanded="false"><span data-i18n="exp.more">Details</span></button>
               <ul>
                 <li data-i18n="e4.b1">Fault diagnosis and troubleshooting on phosphoric acid lines (Siemens S7, Yokogawa CENTUM VP, Emerson DeltaV).</li>
-                <li data-i18n="e4.b2">Project linking the lab stations of 4 lines to the DCS (Excel + OPC server): lab results entered every 2 hours are historized, shown on DCS synoptics next to sensor data, and sent to AVEVA PI.</li>
-                <li data-i18n="e4.b3">Programs to automate manual tasks, e.g. switching a control valve from flow to level control (two PID blocks) when a tank runs low.</li>
+                <li data-i18n="e4.b2">Project linking the lab stations of 4 lines to the DCS (Excel + OPC server): lab results entered every 2 hours are historized, shown on DCS graphics next to sensor data, and sent to AVEVA PI.</li>
+                <li data-i18n="e4.b3">Programs to automate manual tasks, e.g. a flow-to-level override on a control valve (two PID blocks and a selector) when a tank runs low.</li>
               </ul>
             </article>
           </li>
@@ -653,7 +668,7 @@
             <div class="sfc__rail" aria-hidden="true"><span class="sfc__box">S2</span><span class="sfc__link"></span></div>
             <article class="sfc__body">
               <header class="sfc__head">
-                <div><h3 data-i18n="e2.role">Automation Technician</h3><p class="sfc__org">SSE MENA · El Jorf Lasfar, El Jadida</p></div>
+                <div><h3 data-i18n="e2.role">Automation Technician</h3><p class="sfc__org">SSE MENA · Jorf Lasfar, El Jadida</p></div>
                 <p class="sfc__when" data-i18n="e2.when">Nov 2024 – May 2025</p>
               </header>
               <button class="sfc__more" type="button" aria-expanded="false"><span data-i18n="exp.more">Details</span></button>
@@ -700,37 +715,42 @@
           <li class="mod mod--w2" data-reveal>
             <header><span class="mod__slot">SLOT 1</span><span class="led led--run" aria-hidden="true"></span></header>
             <h3 data-i18n="sk.1">PLC</h3>
-            <ul class="chips chips--lg"><li>Siemens S7-1500 / 1200</li><li>TIA Portal</li><li>Emerson (GE Fanuc)</li><li>Mitsubishi</li><li>Unitronics</li><li>Schneider</li><li>Delta</li><li>Opto 22</li></ul>
+            <ul class="chips chips--lg"><li>Siemens S7-1500 / 1200 (TIA Portal)</li><li>Emerson (GE Fanuc)</li><li>Mitsubishi</li><li>Unitronics</li><li>Schneider</li><li>Delta</li><li>Opto 22</li><li data-i18n="sk.iec">IEC 61131-3: LAD, FBD, SCL/ST, GRAPH/SFC, STL/IL</li></ul>
           </li>
           <li class="mod" data-reveal>
             <header><span class="mod__slot">SLOT 2</span><span class="led led--run" aria-hidden="true"></span></header>
-            <h3>DCS / SCADA</h3>
-            <ul class="chips chips--lg"><li>Yokogawa CENTUM VP</li><li>Emerson DeltaV</li><li>WinCC Professional</li><li>AVEVA PI</li></ul>
+            <h3>DCS</h3>
+            <ul class="chips chips--lg"><li data-i18n="sk.dcs1">Yokogawa CENTUM VP: function blocks, CALCU calculation blocks (text language)</li><li data-i18n="sk.dcs2">Emerson DeltaV: function blocks (FBD), SFC, Structured Text (CALC blocks)</li></ul>
           </li>
           <li class="mod" data-reveal>
             <header><span class="mod__slot">SLOT 3</span><span class="led led--run" aria-hidden="true"></span></header>
-            <h3 data-i18n="sk.3">Motion control and robotics</h3>
-            <ul class="chips chips--lg"><li>Trio Motion</li><li data-i18n="sk.3a">Servo drives, different brands</li><li data-i18n="sk.3b">Mitsubishi robots</li><li data-i18n="sk.3c">Fanuc robots</li></ul>
+            <h3 data-i18n="sk.scada">SCADA / HMI / Historian</h3>
+            <ul class="chips chips--lg"><li>WinCC Professional</li><li>AVEVA PI</li></ul>
           </li>
           <li class="mod" data-reveal>
             <header><span class="mod__slot">SLOT 4</span><span class="led led--run" aria-hidden="true"></span></header>
-            <h3>Vision</h3>
-            <ul class="chips chips--lg"><li data-i18n="sk.4a">Keyence vision systems</li><li data-i18n="sk.4b">Keyence printers</li></ul>
+            <h3 data-i18n="sk.3">Motion control and robotics</h3>
+            <ul class="chips chips--lg"><li>Trio Motion</li><li data-i18n="sk.3a">Servo drives (multiple brands)</li><li data-i18n="sk.3b">Mitsubishi robots</li><li data-i18n="sk.3c">Fanuc robots</li></ul>
           </li>
           <li class="mod" data-reveal>
             <header><span class="mod__slot">SLOT 5</span><span class="led led--run" aria-hidden="true"></span></header>
-            <h3 data-i18n="sk.5">Industrial networks</h3>
+            <h3 data-i18n="sk.4">Vision and marking</h3>
+            <ul class="chips chips--lg"><li data-i18n="sk.4a">Keyence vision systems</li><li data-i18n="sk.4b">Keyence printers</li></ul>
+          </li>
+          <li class="mod" data-reveal>
+            <header><span class="mod__slot">SLOT 6</span><span class="led led--run" aria-hidden="true"></span></header>
+            <h3 data-i18n="sk.5">Industrial communication</h3>
             <ul class="chips chips--lg"><li>Profinet</li><li>Profibus</li><li>Modbus TCP</li><li>IO-Link</li><li>OPC</li></ul>
           </li>
-          <li class="mod mod--w2" data-reveal>
-            <header><span class="mod__slot">SLOT 6</span><span class="led led--run" aria-hidden="true"></span></header>
+          <li class="mod" data-reveal>
+            <header><span class="mod__slot">SLOT 7</span><span class="led led--run" aria-hidden="true"></span></header>
             <h3 data-i18n="sk.6">Instrumentation and electrical</h3>
             <ul class="chips chips--lg"><li data-i18n="sk.6a">Instrument calibration</li><li data-i18n="sk.6b">VFDs: Siemens, ABB, Schneider, Yaskawa</li><li data-i18n="sk.6c">Power distribution</li><li data-i18n="sk.6d">Motor control</li></ul>
           </li>
           <li class="mod" data-reveal>
-            <header><span class="mod__slot">SLOT 7</span><span class="led led--run" aria-hidden="true"></span></header>
+            <header><span class="mod__slot">SLOT 8</span><span class="led led--run" aria-hidden="true"></span></header>
             <h3 data-i18n="sk.7">Programming and tools</h3>
-            <ul class="chips chips--lg"><li>Python (Snap7)</li><li>VBA</li><li>VBScript</li><li>HTML / CSS / JS</li><li>AutoCAD Electrical</li><li>Navisworks</li></ul>
+            <ul class="chips chips--lg"><li>Python (Snap7)</li><li>C# (.NET)</li><li>VBA</li><li>VBScript</li><li>HTML / CSS / JS</li><li>AutoCAD Electrical</li><li>Navisworks</li></ul>
           </li>
         </ul>
       </div>
@@ -767,13 +787,13 @@
             <ul class="badges">
               <li>
                 <a href="https://www.credly.com/badges/912a75b2-9b20-4008-b6dd-ceef8ecf00c4/public_url" target="_blank" rel="noopener">
-                  <img src="assets/img/badge-best-of-nation.webp" width="360" height="360" loading="lazy" decoding="async" alt="">
+                  <img src="assets/img/badge-best-of-nation.webp" width="360" height="360" loading="lazy" decoding="async" alt="Credly badge: Best of Nation, WorldSkills Lyon 2024" data-i18n-attr="alt:ws.altb1">
                   <span><b>Best of Nation</b><small><span data-i18n="ws.verify">Verify on Credly</span> <svg class="ico" aria-hidden="true"><use href="#i-ext" /></svg></small></span>
                 </a>
               </li>
               <li>
                 <a href="https://www.credly.com/badges/b285d0ba-bd45-45eb-914c-a7fb8fb866f1/public_url" target="_blank" rel="noopener">
-                  <img src="assets/img/badge-worldskills-champion.webp" width="360" height="360" loading="lazy" decoding="async" alt="">
+                  <img src="assets/img/badge-worldskills-champion.webp" width="360" height="360" loading="lazy" decoding="async" alt="Credly badge: Competitor, Mechatronics" data-i18n-attr="alt:ws.altb2">
                   <span><b data-i18n="ws.b2">Competitor, Mechatronics</b><small><span data-i18n="ws.verify">Verify on Credly</span> <svg class="ico" aria-hidden="true"><use href="#i-ext" /></svg></small></span>
                 </a>
               </li>
@@ -781,10 +801,10 @@
 
             <p class="ws__links">
               <span data-i18n="ws.watch">Watch the competition:</span>
-              <a href="https://youtu.be/rAwejiLvqVQ" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-play" /></svg>1</a>
-              <a href="https://youtu.be/QEyETVjBkPQ" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-play" /></svg>2</a>
-              <a href="https://youtu.be/BAS_DPA2F_s" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-play" /></svg>3</a>
-              <a href="https://youtu.be/8Y287OCT2tw" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-play" /></svg>4</a>
+              <a href="https://youtu.be/rAwejiLvqVQ" target="_blank" rel="noopener" aria-label="Competition video 1" data-i18n-attr="aria-label:ws.v1"><svg class="ico" aria-hidden="true"><use href="#i-play" /></svg>1</a>
+              <a href="https://youtu.be/QEyETVjBkPQ" target="_blank" rel="noopener" aria-label="Competition video 2" data-i18n-attr="aria-label:ws.v2"><svg class="ico" aria-hidden="true"><use href="#i-play" /></svg>2</a>
+              <a href="https://youtu.be/BAS_DPA2F_s" target="_blank" rel="noopener" aria-label="Competition video 3" data-i18n-attr="aria-label:ws.v3"><svg class="ico" aria-hidden="true"><use href="#i-play" /></svg>3</a>
+              <a href="https://youtu.be/8Y287OCT2tw" target="_blank" rel="noopener" aria-label="Competition video 4" data-i18n-attr="aria-label:ws.v4"><svg class="ico" aria-hidden="true"><use href="#i-play" /></svg>4</a>
               <a href="https://www.flickr.com/photos/worldskills/collections/72157721575129232/" target="_blank" rel="noopener" data-i18n="ws.photos">Photos</a>
             </p>
           </div>
@@ -809,7 +829,7 @@
 
         <ul class="edu" data-reveal>
           <li><span class="edu__y" data-i18n="ed1.y">2026 – now</span><div><b data-i18n="ed1.t">Specialized Master's Degree (MUS)</b><span data-i18n="ed1.d">Electromechanical Engineering of Industrial Systems (GESI)</span></div><span class="edu__w" data-i18n="ed1.w">ENSA Kenitra, Ibn Tofail University</span></li>
-          <li><span class="edu__y">2025 – 2026</span><div><b data-i18n="ed2.t">Professional Bachelor's Degree</b><span data-i18n="ed2.d">Industrial Automation and Electrical Systems</span></div><span class="edu__w">ENSAM</span></li>
+          <li><span class="edu__y">2025 – 2026</span><div><b data-i18n="ed2.t">Professional Bachelor's Degree</b><span data-i18n="ed2.d">Industrial Automation and Electrical Systems</span></div><span class="edu__w">ENSAM Casablanca</span></li>
           <li><span class="edu__y">2024</span><div><b data-i18n="ed3.t">Intensive Training</b><span data-i18n="ed3.d">Mechatronics</span></div><span class="edu__w">CDCGE Casablanca</span></li>
           <li><span class="edu__y">2021 – 2023</span><div><b data-i18n="ed4.t">Specialized Technician Diploma</b><span data-i18n="ed4.d">Automation and Industrial Instrumentation</span></div><span class="edu__w">OFPPT Agadir</span></li>
           <li><span class="edu__y">2019 – 2021</span><div><b data-i18n="ed5.t">Technician Diploma</b><span data-i18n="ed5.d">Industrial Electrical Maintenance</span></div><span class="edu__w">OFPPT Agadir</span></li>
@@ -840,7 +860,8 @@
               <div class="picks" id="briefPicks">
                 <label><input type="checkbox" id="pk1" name="need" value="PLC programming / commissioning"><span data-i18n="ct.n1">PLC programming</span></label>
                 <label><input type="checkbox" id="pk2" name="need" value="Troubleshooting"><span data-i18n="ct.n2">Troubleshooting</span></label>
-                <label><input type="checkbox" id="pk3" name="need" value="SCADA / HMI / DCS"><span>SCADA / HMI / DCS</span></label>
+                <label><input type="checkbox" id="pk3" name="need" value="DCS"><span>DCS</span></label>
+                <label><input type="checkbox" id="pk7" name="need" value="SCADA / HMI"><span data-i18n="ct.n3b">SCADA / HMI</span></label>
                 <label><input type="checkbox" id="pk4" name="need" value="Motion control / vision"><span data-i18n="ct.n4">Motion / vision</span></label>
                 <label><input type="checkbox" id="pk5" name="need" value="Data link / custom tool"><span data-i18n="ct.n5">Data / custom tool</span></label>
                 <label><input type="checkbox" id="pk6" name="need" value="Job offer"><span data-i18n="ct.n6">Job offer</span></label>
@@ -876,7 +897,7 @@
               <li class="direct__mail">
                 <a href="mailto:ayoubbnibourk728@gmail.com">
                   <svg class="ico" aria-hidden="true"><use href="#i-mail" /></svg>
-                  <span><small>Email</small><b id="mailTxt">ayoubbnibourk728@gmail.com</b></span>
+                  <span><small data-i18n="ct.email">Email</small><b id="mailTxt">ayoubbnibourk728@gmail.com</b></span>
                 </a>
                 <button class="iconbtn" type="button" id="copyMail" aria-label="Copy email address" data-i18n-attr="aria-label:ct.copy">
                   <svg class="ico" aria-hidden="true"><use href="#i-copy" /></svg></button>
@@ -908,7 +929,7 @@
             </div>
 
             <p class="direct__where"><svg class="ico" aria-hidden="true"><use href="#i-pin" /></svg>
-              <span data-i18n="ct.where">Based in Tangier, Morocco. I take on projects and machine problems.</span></p>
+              <span data-i18n="ct.where">Based in Tangier, Morocco. Available for projects and machine troubleshooting.</span></p>
             <p class="direct__form"><a href="https://script.google.com/macros/s/AKfycbwLgLW7gB7gdtmEnRhcrh9pupmcNH2-lowdPL0bWSpJl7Fq71GJiL6lwBsBsDbLvSXFxg/exec" target="_blank" rel="noopener"><span data-i18n="ct.form">Or use the detailed request form</span> <svg class="ico" aria-hidden="true"><use href="#i-ext" /></svg></a></p>
           </div>
         </div>
@@ -926,8 +947,8 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="assets/js/fr.js?v=5" defer></script>
-  <script src="assets/js/main.js?v=5" defer></script>
+  <script src="assets/js/fr.js?v=6" defer></script>
+  <script src="assets/js/main.js?v=6" defer></script>
 </body>
 
 </html>

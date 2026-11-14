@@ -32,6 +32,7 @@
       'tank.more': 'Increase demand', 'tank.normal': 'Normal demand',
       'tank.scrubber': 'SCRUBBER', 'tank.name': 'TANK 07', 'tank.pumps': 'PUMPS',
       'rfid.tool': 'TOOL', 'rfid.prog': 'PROGRAM',
+      'pid.lowerOut': 'Decrease output', 'pid.raiseOut': 'Increase output',
       'toast.copied': 'Email address copied',
       'msg.hello': 'Hello Ayoub,', 'msg.need': 'Need', 'msg.name': 'Name', 'msg.co': 'Company',
       'msg.subject': 'Request from your website'
@@ -41,6 +42,7 @@
       'tank.more': 'Augmenter la consommation', 'tank.normal': 'Consommation normale',
       'tank.scrubber': 'LAVEUR', 'tank.name': 'BAC 07', 'tank.pumps': 'POMPES',
       'rfid.tool': 'OUTIL', 'rfid.prog': 'PROGRAMME',
+      'pid.lowerOut': 'Diminuer la sortie', 'pid.raiseOut': 'Augmenter la sortie',
       'toast.copied': 'Adresse e-mail copiée',
       'msg.hello': 'Bonjour Ayoub,', 'msg.need': 'Besoin', 'msg.name': 'Nom', 'msg.co': 'Société',
       'msg.subject': 'Demande depuis votre site'
@@ -354,7 +356,13 @@
     for (var b = 0; b < Math.round(P.dead / P.dt); b++) s.buf.push(s.out);
     var hSp = [], hPv = [], hOut = [], acc = 0, hAcc = 0;
     var elSp = $('#pidSp'), elPv = $('#pidPv'), elOut = $('#pidOut'), elWhat = $('#pidWhat');
-    var bAuto = $('#pidAuto'), bMan = $('#pidMan');
+    var bAuto = $('#pidAuto'), bMan = $('#pidMan'), bUp = $('#pidUp'), bDown = $('#pidDown');
+    /* In AUTO the +/- buttons move the setpoint, in MAN they move the output: the spoken label follows. */
+    function labels() {
+      bDown.setAttribute('aria-label', t(s.auto ? 'pid.lower' : 'pid.lowerOut'));
+      bUp.setAttribute('aria-label', t(s.auto ? 'pid.raise' : 'pid.raiseOut'));
+    }
+    langListeners.push(labels);
     var W = 0, H = 0, col = {}, visible = true, raf = 0, last = 0, lastUser = -1e9, autoT = 0, autoI = 0, roT = 0;
     var AUTO_SP = [132, 112, 126, 138, 118];
 
@@ -471,7 +479,7 @@
     function setMode(auto) {
       if (auto && !s.auto) s.integ = s.out - P.Kp * (s.sp - s.pv);         // bumpless transfer
       s.auto = auto; bAuto.setAttribute('aria-pressed', String(auto)); bMan.setAttribute('aria-pressed', String(!auto));
-      elWhat.textContent = auto ? 'SP' : 'OUT'; touched();
+      elWhat.textContent = auto ? 'SP' : 'OUT'; labels(); touched();
     }
     function nudge(dir) {
       if (s.auto) s.sp = clamp(s.sp + dir * 5, 100, 140); else s.out = clamp(s.out + dir * 5, 0, 100);

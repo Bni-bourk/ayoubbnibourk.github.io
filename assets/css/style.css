@@ -447,15 +447,24 @@ b, strong { font-weight: 600; }
 /* ==========================================================================
    Services
    ========================================================================== */
-.svc { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-.svc__item { padding: 24px 22px 26px; display: grid; gap: 12px; align-content: start; }
+/* 7 cards: four in the first row, three in the second */
+.svc { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 16px; }
+.svc__item { grid-column: span 4; padding: 24px 22px 26px; display: grid; gap: 12px; align-content: start; }
+.svc__item:nth-child(-n+4) { grid-column: span 3; }
 .svc__ico { width: 44px; height: 44px; fill: none; stroke: var(--teal); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; margin-bottom: 6px; }
 .svc__ico .dot { fill: var(--amber); stroke: none; }
 .svc__item h3 { font: 600 1.18rem/1.25 var(--f-body); }
 .svc__item p { font-size: .96rem; line-height: 1.6; color: var(--ink-2); }
 .svc__item:hover { transform: translateY(-4px); }
-@media (max-width: 980px) { .svc { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 620px) { .svc { grid-template-columns: 1fr; } }
+@media (max-width: 980px) {
+  .svc { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .svc__item, .svc__item:nth-child(-n+4) { grid-column: auto; }
+  .svc__item:last-child { grid-column: 1 / -1; }
+}
+@media (max-width: 660px) {
+  .svc { grid-template-columns: 1fr; }
+  .svc__item:last-child { grid-column: auto; }
+}
 
 .flow { margin-top: clamp(40px, 6vw, 72px); }
 .flow__title, .soft__title { font: 500 .8rem/1 var(--f-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
@@ -548,6 +557,7 @@ b, strong { font-weight: 600; }
 .g-node rect { fill: var(--panel); stroke: var(--line-2); stroke-width: 1.5; }
 .g-node text { fill: var(--ink); font-size: 13px; font-weight: 500; }
 .g-node .g-sub { fill: var(--muted); font-size: 9.5px; font-weight: 400; }
+:root[data-lang="fr"] .g-node .g-sub { font-size: 8px; }   /* "historisation" must fit its box */
 .g-node--hot rect { stroke: var(--teal); }
 .g-st rect { fill: var(--panel); stroke: var(--line-2); stroke-width: 1.5; transition: fill .25s, stroke .25s; }
 .g-st rect.is-on { fill: color-mix(in srgb, var(--amber) 28%, var(--panel)); stroke: var(--amber); stroke-width: 2.5; }
